@@ -5,10 +5,6 @@
     font-family: 'Arial', sans-serif;
   }
   
-  .logo img {
-    height: 40px;
-    width: auto;
-  }
 
   body {
     background-color: #111;
@@ -28,6 +24,10 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffcc00;
+  }
+  .logo img {
+    height: 40px;
+    width: auto;
   }
   
   .nav-links {
@@ -136,58 +136,27 @@
     color: #f5f5f5;
   }
 
-  .pricing-section {
-    background-color: #1a1a1a;
-    color: #f2f2f2;
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
-  
-  .pricing-container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .pricing-container h2 {
-    font-size: 2rem;
-    color: #ffd700;
-    margin-bottom: 0.5rem;
-  }
-  
-  .pricing-container p {
-    margin-bottom: 2rem;
-    color: #ccc;
-  }
-  
-  .pricing-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #2b2b2b;
-    border: 2px solid #ffd700;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .pricing-table th,
-  .pricing-table td {
-    padding: 1rem;
-    border: 1px solid #444;
-    text-align: left;
-  }
-  
-  .pricing-table th {
-    background-color: #333;
-    color: #ffd700;
-  }
-  
-  .pricing-table tr:nth-child(even) {
-    background-color: #1f1f1f;
-  }
-  
-  .pricing-table tr:hover {
-    background-color: #2e2e2e;
-  }
+  .map-section {
+  background-color: #1a1a1a;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #f2f2f2;
+}
 
+.map-section h2 {
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.map-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  overflow: hidden;
+}
+  
   .instructors-section {
     background-color: #1a1a1a;
     color: #f2f2f2;
@@ -321,3 +290,113 @@
   .cta-button:hover {
     background-color: #e6c200;
   }
+
+  /*O nama*/
+  .about-us {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  padding: 3rem 1.5rem;
+  text-align: left;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.about-us h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.about-us p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.about-us strong {
+  color: #ffd700;
+}
+/*Kako do vozacke*/
+.how-to-license {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  padding: 3rem 1.5rem;
+  text-align: left;
+}
+
+.how-to-license h2 {
+  text-align: center;
+  color: #ffd700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.license-steps {
+  list-style: decimal inside;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.license-steps li {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.final-message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: #ffd700;
+}
+
+/*Kategorije*/
+.vehicle-categories {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.vehicle-categories h2 {
+  color: #ffd700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.category-dropdown select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  background-color: #2b2b2b;
+  color: #fff;
+}
+.category-info {
+  margin-top: 2rem;
+}
+.category-box {
+  background-color: #2b2b2b;
+  border: 2px solid #ffd700;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.category-box img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+.category-box h3 {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.category-box p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}

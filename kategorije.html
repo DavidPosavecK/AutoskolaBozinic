@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autoškola Božinić</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./slike/logo.jpg" alt="Autoškola Božinić" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Naslovna</a></li>
+          <li><a href="instruktori.html">Instruktori</a></li>
+          <li><a href="kakodo.html">Kako do vozačke</a></li>
+          <li><a href="kategorije.html">Kategorije</a></li>
+          <li><a href="onama.html">O nama</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="vehicle-categories">
+      <div class="container">
+        <h2>4. Kategorije vozila</h2>
+        <div class="category-dropdown">
+          <select id="category-select">
+            <option value="" disabled selected>Odaberi kategoriju</option>
+            <option value="a1">A1 - motocikl do 125ccm</option>
+            <option value="a2">A2 - motocikl do 600ccm</option>
+            <option value="a">A - motocikl iznad 600ccm</option>
+            <option value="b">B - osobni automobil</option>
+          </select>
+        </div>
+
+        <div id="category-info" class="category-info">
+          <!-- Ovdje se dinamicki prikazuju -->
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2025 Autoškola Božinić. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#" target="_blank" aria-label="Facebook">
+          <img src="./slike/facebook-icon.png" alt="Facebook" />
+        </a>
+        <a href="#" target="_blank" aria-label="Instagram">
+          <img src="./slike/Instagram_icon.png.webp" alt="Instagram" />
+        </a>
+        <a href="#" target="_blank" aria-label="TikTok">
+          <img src="./slike/tiktok-icon.png" alt="YouTube" />
+        </a>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
