@@ -415,3 +415,18 @@ footer {
   color: #e0e0e0;
   line-height: 1.6;
 }
+
+.logo__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo__link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo__link:visited {
+  color: inherit;
+  text-decoration: none;
+}
