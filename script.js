@@ -50,3 +50,6 @@ Obuka se sastoji od 30 nastavnih sati iz teorijskog dijela i 35 sati praktičnog
       info.innerHTML = '';
     }
   });
+
+
+

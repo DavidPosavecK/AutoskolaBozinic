@@ -15,7 +15,13 @@
             <img src="./slike/logo.jpg" alt="Autoškola Božinić" />
           </div>
         </a>
-        <ul class="nav-links">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          #
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+        <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Naslovna</a></li>
           <li><a href="instruktori.html">Instruktori</a></li>
           <li><a href="kakodo.html">Kako do vozačke</a></li>
@@ -82,11 +88,9 @@
       <!-- Gumb za kontakt ne znam dal hoces da se prebaci na cjenik ili ide na stranicu upoznaj instruktore-->
       <section class="cta-bottom">
         <h2>
-          Spremni za vožnju? Pogledajte kako do vozačke dozvole, te pogledajte
-          naša vozila.
+          Spremni za vožnju? Upoznajte se s koracima do vozačke.
         </h2>
-        <a href="./cjenik.html" class="cta-button">Cjenik</a>
-        <a href="./instruktori.html" class="cta-button">Insturuktori</a>
+        <a href="./kakodo.html" class="cta-button">Kako do vozačke</a>
       </section>
     </div>
     </div>
@@ -108,5 +112,6 @@
         </a>
       </div>
     </footer>
+    <script src="./navbar.js"></script>
   </body>
 </html>
