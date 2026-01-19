@@ -651,6 +651,118 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* News/Obavijesti Section */
+.news-section {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  padding: 3rem 1.5rem;
+}
+
+.news-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.loading-message {
+  text-align: center;
+  color: #ffd700;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+.error-message {
+  text-align: center;
+  color: #f44336;
+  padding: 2rem;
+  background-color: rgba(244, 67, 54, 0.1);
+  border: 2px solid #f44336;
+  border-radius: 8px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.news-item {
+  background-color: #2b2b2b;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+}
+
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.news-date {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.news-category {
+  background-color: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.news-title {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.news-content {
+  color: #e0e0e0;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.news-content p {
+  margin-bottom: 1rem;
+}
+
+.news-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .news-section {
+    padding: 2rem 1rem;
+  }
+
+  .news-item {
+    padding: 1.5rem;
+  }
+
+  .news-title {
+    font-size: 1.3rem;
+  }
+
+  .news-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 /*Kako do vozacke*/
 .how-to-license {
   background-color: #1a1a1a;

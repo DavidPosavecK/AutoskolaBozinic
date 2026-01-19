@@ -4,41 +4,41 @@
 
 const googleReviews = [
   {
-    name: "Marko Horvat",
+    name: "Luka Petak",
     rating: 5,
-    text: "Odlična autoškola! Instruktori su strpljivi i profesionalni. Sve je bilo organizirano i jasno objašnjeno. Preporučujem svima!",
-    date: "15. prosinca 2024."
+    text: "Predavanja su bila jasna, zanimljiva i jako dobro organizirana. Posebno bih pohvalio instruktora Nikolu Božinića, koji je uvijek imao strpljenja i znao odlično objasniti sve što treba.",
+    date: "lipnja 2024."
   },
   {
-    name: "Ana Marić",
+    name: "Dario Galinec",
     rating: 5,
-    text: "Preporučujem svima! Nastava je kvalitetna, a instruktori su jako susretljivi. Hvala vam na svemu što ste mi pomogli da postanem siguran vozač.",
-    date: "20. studenog 2024."
+    text: "Autoškola Božinić je odličan izbor za sve koji žele naučiti voziti. Instruktori su strpljivi i profesionalni, a nastava je jasna i razumljiva. Vozila su moderna i dobro održavana, a cijene su pristupačne. Sve u svemu, toplo preporučujem ovu autoškolu.",
+    date: "lipnja 2024."
   },
   {
-    name: "Ivan Novak",
+    name: "Nino Bančić",
     rating: 5,
-    text: "Najbolja autoškola u gradu. Sve je bilo profesionalno i organizirano. Vozačku sam dobio bez problema. Instruktorica je bila strpljiva i odlična!",
-    date: "10. listopada 2024."
+    text: "Svakome tko se odluči upisati u autoškolu toplo preporučam L-PROM-BOŽINIĆ! Ekipa je više nego profesionalna, a posebno bi istaknuo instruktora Nikolu koji je odličan.",
+    date: "lipnja 2024."
   },
   {
-    name: "Petra Kovač",
+    name: "Luka Kušter",
     rating: 5,
-    text: "Fantastično iskustvo! Instruktorica je bila strpljiva i profesionalna. Nastava je bila zanimljiva i lako razumljiva. Preporučujem svima!",
-    date: "5. rujna 2024."
+    text: "Predavanja su sjajna i super objašnjena ako se prati na predavanju ne bi trebalo biti problema na ispitu, vožnja je zabavna i uzbudljiva instruktor uvijek daje konstruktivne savjete.",
+    date: "lipnja 2024."
   },
   {
-    name: "Tomislav Babić",
+    name: "Patrik Kovač",
     rating: 5,
-    text: "Odlična autoškola s dugogodišnjim iskustvom. Instruktori su stručni i pristupačni. Sve preporuke!",
-    date: "28. kolovoza 2024."
+    text: "Odlična autoškola, ekipa uvijek na raspolaganju i željna pomoći, predavanja zabavna i jasna. Velik izbor automobila u paketu s odličnim instruktorima. Hvala instruktoru Nikoli koji je svoje znanje i vještine trudom i mirnoćom prenosio na mene.",
+    date: "lipnja 2024."
   },
   {
-    name: "Maja Jurić",
+    name: "Ivona Zver",
     rating: 5,
-    text: "Prekrasno iskustvo! Ljubazno osoblje, kvalitetna nastava i odlični instruktori. Hvala vam što ste mi pomogli da postanem siguran vozač!",
-    date: "15. srpnja 2024."
-  }
+    text: "Sve u svemu, zadovoljna sam autoškolom. Iako mi je cijeli proces osobno bio malo stresniji nego što je možda nekima, sve je proteklo sasvim u redu. Instruktor je bio strpljiv i profesionalan.",
+    date: "lipnja 2024."
+  },
 ];
 
 // Calculate average rating
