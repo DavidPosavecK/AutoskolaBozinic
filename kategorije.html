@@ -1,19 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kategorije vozila - A1, A2, A i B. Detaljne informacije o obuci za svaku kategoriju vozačke dozvole. Autoškola Božinić - Ivanec." />
-    <meta name="keywords" content="kategorija A, kategorija B, kategorija A1, kategorija A2, vozačka dozvola kategorije, obuka vožnje, motocikli, automobili" />
+    <meta
+      name="description"
+      content="Kategorije vozila - A1, A2, A i B. Detaljne informacije o obuci za svaku kategoriju vozačke dozvole. Autoškola Božinić - Ivanec."
+    />
+    <meta
+      name="keywords"
+      content="kategorija A, kategorija B, kategorija A1, kategorija A2, vozačka dozvola kategorije, obuka vožnje, motocikli, automobili"
+    />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.autoskolabozinic.hr/kategorije.html" />
-    
+    <link
+      rel="canonical"
+      href="https://www.autoskolabozinic.hr/kategorije.html"
+    />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.autoskolabozinic.hr/kategorije.html" />
+    <meta
+      property="og:url"
+      content="https://www.autoskolabozinic.hr/kategorije.html"
+    />
     <meta property="og:title" content="Kategorije vozila - Autoškola Božinić" />
-    <meta property="og:description" content="Informacije o obuci za kategorije A1, A2, A i B vozačke dozvole." />
-    
+    <meta
+      property="og:description"
+      content="Informacije o obuci za kategorije A1, A2, A i B vozačke dozvole."
+    />
+
     <title>Kategorije vozila - A1, A2, A, B | Autoškola Božinić</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -48,18 +63,123 @@
       </section>
       <section class="vehicle-categories">
         <div class="container">
-          <div class="category-dropdown">
-            <select id="category-select">
-              <option value="" disabled selected>Odaberi kategoriju</option>
-              <option value="a1">A1 - motocikl do 125ccm</option>
-              <option value="a2">A2 - motocikl do 600ccm</option>
-              <option value="a">A - motocikl iznad 600ccm</option>
-              <option value="b">B - osobni automobil</option>
-            </select>
+          <div class="category-anchors">
+            <a class="category-anchor-btn" href="#kat-a1">A1</a>
+            <a class="category-anchor-btn" href="#kat-a2">A2</a>
+            <a class="category-anchor-btn" href="#kat-a">A</a>
+            <a class="category-anchor-btn" href="#kat-b">B</a>
           </div>
 
-          <div id="category-info" class="category-info">
-            <!-- Ovdje se dinamicki prikazuju -->
+          <div class="categories-grid-static">
+            <!-- A1 -->
+            <div id="kat-a1" class="category-box category-box--long">
+              <h3>A1 - motocikl do <span class="highlight">125 cm³</span></h3>
+              <img src="./slike/a1.jpeg" alt="A1 kategorija" />
+
+              <p>
+                Motocikli sa ili bez bočne prikolice, radnog obujma motora do
+                <span class="highlight">125 cm3</span> i snage motora od najviše
+                <span class="highlight">11 kW</span> i odnosom snage i mase koji
+                ne prelazi <span class="highlight">0,1 kW/kg</span>, te motorna
+                vozila na tri kotača čija snaga nije veća od
+                <span class="highlight">15 kW</span>. <br /><br />
+
+                Minimalna starosna dob za upis je
+                <span class="highlight">15 godina i 6 mjesec</span>, a
+                pristupiti na ispit iz vožnje sa navršenih
+                <span class="highlight">16 godina</span>. Kroz obuku prolazi se
+                <span class="highlight">30 nastavnih sati</span> iz teorijskog
+                dijela, odslušati predavanje iz Prve pomoći te na kraju u
+                praktičnom dijelu odvoziti
+                <span class="highlight">20 sati</span>. <br /><br />
+
+                Ukoliko posjedujete B kategoriju u obuci imate
+                <span class="highlight">7 sati vožnje</span>, nakon čega se
+                izlazi na ispit iz praktičnog dijela.
+              </p>
+            </div>
+
+            <!-- A2 -->
+            <div id="kat-a2" class="category-box category-box--long">
+              <h3>A2 - motocikl do <span class="highlight">35 kW</span></h3>
+              <img src="./slike/a2.jpeg" alt="A2 kategorija" />
+
+              <p>
+                Motocikli sa ili bez bočne prikolice, čija snaga ne prelazi
+                <span class="highlight">35 kW</span> i čiji omjer snaga/masa ne
+                prelazi <span class="highlight">0,2 kW/kg</span>, a ne potječu
+                od vozila čija je snaga dvostruko veća i više. <br /><br />
+
+                Minimalna starosna dob je
+                <span class="highlight">18 godina</span>. Kroz obuku prolazi se
+                <span class="highlight">30 nastavnih sati</span> iz teorijskog
+                dijela, predavanje iz Pružanja prve pomoći te
+                <span class="highlight">20 sati</span> praktičnog dijela.
+                <br /><br />
+
+                Ukoliko već posjedujete B kategoriju, obuka se tada sastoji samo
+                od praktičnog dijela gdje je potrebno odvoziti
+                <span class="highlight">15 sati</span>, međutim ako posjedujete
+                A1 kategoriju, praktični dio se sastoji samo od
+                <span class="highlight">7 sati</span>.
+              </p>
+            </div>
+
+            <!-- A -->
+            <div id="kat-a" class="category-box category-box--long">
+              <h3>A - motocikl iznad <span class="highlight">600 cm³</span></h3>
+              <img src="./slike/a.jpeg" alt="A kategorija" />
+
+              <p>
+                Motocikli sa ili bez bočne prikolice i motorna vozila na tri
+                kotača čija je snaga veća od
+                <span class="highlight">15 kW</span>. Minimalna starosna dob za
+                kategoriju A je <span class="highlight">24 godine</span>,
+                odnosno <span class="highlight">20 godina</span> ukoliko vozač
+                ima vozačku dozvolu A2 kategorije najmanje
+                <span class="highlight">dvije godine</span>. <br /><br />
+
+                U program za osposobljavanje moguće se upisati sa
+                <span class="highlight">23 godine i 6 mjeseci</span> ili
+                minimalna starosna dob
+                <span class="highlight">19 godina i 6 mjeseci</span>, te
+                posjedovanje vozačke dozvole A2 kategorije najmanje
+                <span class="highlight">2 godine</span>. Obuku čini
+                <span class="highlight">30 nastavnih sati</span> iz teorijskog
+                dijela, Pružanje prve pomoći i
+                <span class="highlight">25 sati</span> praktične nastave.
+                Ukoliko se posjeduje B kategorija, potrebno je odvoziti samo
+                <span class="highlight">15 sati</span>.
+              </p>
+            </div>
+
+            <!-- B -->
+            <div id="kat-b" class="category-box category-box--long">
+              <h3>B - osobni automobil</h3>
+              <img src="./slike/auto.jpg" alt="B kategorija" />
+
+              <p>
+                Motorna vozila čija najveća dopuštena masa ne prelazi
+                <span class="highlight">3.500 kg</span> i koja su dizajnirana i
+                konstruirana za prijevoz ne više od
+                <span class="highlight">8 putnika</span>, ne računajući sjedalo
+                za vozača; motorna vozila ove kategorije mogu biti u kombinaciji
+                s priključnim vozilom čija najveća dopuštena masa ne prelazi
+                <span class="highlight">750 kg</span>. <br /><br />
+
+                Minimalna starosna dob za upisa B kategorije je
+                <span class="highlight">17 godina i 6 mjeseci</span>, međutim
+                kako bi se izašlo na ispit iz Upravljanja vozila potrebno je
+                imati navršenih <span class="highlight">18 godina</span>.
+                <br /><br />
+
+                Obuka se sastoji od
+                <span class="highlight">30 nastavnih sati</span> iz teorijskog
+                dijela i <span class="highlight">35 sati</span> praktičnog
+                dijela. Predavanja iz područja Pružanja prve pomoći održavaju
+                ovlaštene zdravstvene ustanove.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -75,11 +195,13 @@
         >
           <img src="./slike/facebook-icon.png" alt="Facebook" />
         </a>
-        <a href="#" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+        <a
+          href="#"
+          target="_blank"
+          aria-label="Instagram"
+          rel="noopener noreferrer"
+        >
           <img src="./slike/Instagram_icon.png.webp" alt="Instagram" />
-        </a>
-        <a href="#" target="_blank" aria-label="TikTok" rel="noopener noreferrer">
-          <img src="./slike/tiktok-icon.png" alt="TikTok" />
         </a>
       </div>
     </footer>
