@@ -52,6 +52,32 @@
       content="https://www.autoskolabozinic.hr/slike/logo.png"
     />
 
+    <meta
+      name="description"
+      content="Obavijesti i novosti Autoškole Božinić. Pratite najnovije informacije o promjenama, događajima, novim vozilima i važnim obavijestima."
+    />
+    <meta
+      name="keywords"
+      content="obavijesti autoškola, novosti autoškola Božinić, vijesti autoškole, promjene u autoškoli"
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://www.autoskolabozinic.hr/obavijesti.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.autoskolabozinic.hr/obavijesti.html"
+    />
+    <meta property="og:title" content="Obavijesti - Autoškola Božinić" />
+    <meta
+      property="og:description"
+      content="Najnovije informacije o promjenama, događajima i važnim obavijestima."
+    />
+
     <title>Autoškola Božinić - Profesionalne poduke vožnje | Ivanec</title>
     <link rel="stylesheet" href="styles.css" />
 
@@ -136,6 +162,26 @@
         <a href="./kakodo.html" class="cta-button">Kako do vozačke</a>
       </section>
     </div>
+    <div class="page-wrapper">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Obavijesti</h1>
+        </div>
+        <span>Saznajte datuma novih grupa, opcenite obavjesti vezane uz autoškolu i brojne druge aktivnosti te događajima u kojima sudjeluje Autoškola Božinić.</span>
+      </section>
+    <section class="news-section">
+      <div class="news-container">
+        <div id="loading-message" class="loading-message">
+          Učitavanje obavijesti...
+        </div>
+        <div id="news-list" class="news-list">
+          <!-- News items will be loaded from Google Sheets -->
+        </div>
+        <div id="error-message" class="error-message" style="display: none">
+          <p>Nije moguće učitati obavijesti. Molimo pokušajte kasnije.</p>
+        </div>
+      </div>
+    </section>
     <footer>
       <p>&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
       <div class="social-icons">
@@ -158,5 +204,6 @@
       </div>
     </footer>
     <script src="./navbar.js"></script>
+    <script src="./obavijesti.js"></script>
   </body>
 </html>
