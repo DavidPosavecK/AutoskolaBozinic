@@ -51,6 +51,36 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('input[name="kategorija"]:checked').forEach(checkbox => {
         categories.push(checkbox.value);
       });
+      function showError(msg, el) {
+  alert(msg);
+  if (el) el.focus();
+}
+
+      // EMAIL validacija
+      const emailRaw = (formData.get('email') || '').trim();
+      const emailEl = form.querySelector('[name="email"]');
+
+      // ako želiš da email bude OBAVEZAN:
+      if (!emailRaw) {
+        return showError('Molimo upišite e-mail adresu.', emailEl);
+      }
+
+      // osnovna (razumna) provjera emaila
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRaw);
+      if (!emailOk) {
+        return showError('Molimo upišite valjanu e-mail adresu (npr. ime@domena.hr).', emailEl);
+      }
+
+      // OIB validacija: samo brojke + točno 11 znamenki
+      const oibRaw = (formData.get('oib') || '').trim();
+      const oibEl = form.querySelector('[name="oib"]');
+
+      if (!oibRaw) {
+        return showError('Molimo upišite OIB.', oibEl);
+      }
+      if (!/^\d{11}$/.test(oibRaw)) {
+        return showError('OIB mora sadržavati točno 11 znamenki i ne smije sadržavati slova ili razmake.', oibEl);
+      }
 
       // Build simple email body
       const emailBody = `
