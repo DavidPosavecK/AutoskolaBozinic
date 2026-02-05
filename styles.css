@@ -14,6 +14,7 @@ body {
 html {
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
   color: #f2f2f2;
   display: flex;
   flex-direction: column;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .page-wrapper {
@@ -30,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  padding-top: 90px; /* Space for fixed navbar */
 }
 
 /* The hero image */
@@ -110,25 +112,24 @@ body {
 /* Header */
 header {
   width: 100%;
-  position: relative;
-  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 /* Navbar */
 .navbar {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 1.2rem 3rem;
-  position: sticky;
-  top: 0;
   width: 100%;
   box-sizing: border-box;
-  z-index: 1000;
   border-bottom: 1px solid rgba(255, 215, 0, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -837,6 +838,8 @@ footer {
   border-radius: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  border: none;
+  cursor: pointer;
 }
 
 .enrollment-button:hover {
@@ -959,10 +962,11 @@ footer {
 }
 
 /*Kategorije*/
+
 .vehicle-categories {
-  background-color: #1a1a1a;
+  background: linear-gradient(to bottom, #0f0f0f 0%, #1a1a1a 100%);
   color: #f2f2f2;
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.5rem;
   text-align: center;
 }
 .vehicle-categories h2 {
@@ -982,27 +986,59 @@ footer {
   margin-top: 2rem;
 }
 .category-box {
-  background-color: #2b2b2b;
-  border: 2px solid #ffd700;
-  padding: 2rem;
-  border-radius: 10px;
+  background: #2b2b2b;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  padding: 0;
+  border-radius: 12px;
   max-width: 700px;
   margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem 1rem;
+  background: rgba(255, 215, 0, 0.03);
+}
+
+.category-icon {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.08);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  min-width: 50px;
+  text-align: center;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.category-image-wrapper {
+  padding: 0 2rem;
+  margin-bottom: 1.5rem;
+}
+
 .category-box img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 1rem;
   border-radius: 8px;
 }
+
 .category-box h3 {
-  color: #ffd700;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.category-box p {
   color: #e0e0e0;
-  line-height: 1.6;
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.category-box p {
+  color: #d0d0d0;
+  line-height: 1.8;
+  padding: 0 2rem 2rem;
+  font-size: 1rem;
 }
 
 .logo__link {
@@ -1090,10 +1126,13 @@ footer {
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 1.5rem;
-    position: sticky;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .page-wrapper {
+    padding-top: 75px; /* Adjusted for smaller navbar on mobile */
   }
 
   .logo img {
@@ -1178,45 +1217,59 @@ footer {
   }
 }
 .category-anchors {
-  display: flex;
-  gap: 0.75rem;
+  display: none; /* Hidden on desktop */
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 3rem;
+  max-width: 900px;
 }
 
 .category-anchor-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 72px;
-  padding: 0.8rem 1.2rem;
-  border-radius: 12px;
-  border: 2px solid #ffd700;
-  background: rgba(43, 43, 43, 0.9);
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
   color: #ffd700;
   text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  transition: 0.25s ease;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 130px;
 }
 
 .category-anchor-btn:hover {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 0 16px rgba(255, 215, 0, 0.35);
 }
 
 .category-anchor-btn:active {
   transform: translateY(0);
 }
 
+.category-badge {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffd700;
+}
+
+.category-label {
+  font-size: 0.8rem;
+  color: #d0d0d0;
+  font-weight: 500;
+}
+
 /* ===== 2 columns desktop, 1 column mobile ===== */
 
 .categories-grid-static {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 u redu */
-  gap: 1.5rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
   margin: 0 auto;
   text-align: left;
 }
@@ -1225,6 +1278,7 @@ footer {
 @media (max-width: 768px) {
   .categories-grid-static {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1232,30 +1286,32 @@ footer {
 
 .category-box--long {
   height: 100%;
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .category-box--long:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 215, 0, 0.4);
 }
 
 .category-box--long img {
   width: 100%;
-  max-height: 320px;          /* bilo 180 */
-  object-fit: contain;       /* umjesto cover – vidi se cijeli auto */
-  background: #111;          /* lijepa podloga ako ostane prostor */
-  padding: 0.5rem;
-  border-radius: 12px;
+  max-height: 280px;
+  object-fit: contain;
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
 /* Na manjim ekranima još malo veća */
 
 @media (max-width: 1024px) {
   .category-box--long img {
-    max-height: 260px;
+    max-height: 240px;
   }
 }
 
@@ -1265,13 +1321,314 @@ footer {
   .category-box--long img {
     max-height: none;
   }
+  
+  .vehicle-categories {
+    padding: 3rem 1rem;
+  }
+  
+  .category-anchors {
+    display: flex; /* Show on mobile/tablet */
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .category-anchor-btn {
+    min-width: 110px;
+    padding: 0.7rem 1rem;
+  }
+  
+  .category-badge {
+    font-size: 1.2rem;
+  }
+  
+  .category-label {
+    font-size: 0.75rem;
+  }
+  
+  .category-header {
+    padding: 1.2rem 1.5rem 0.8rem;
+    gap: 0.8rem;
+  }
+  
+  .category-icon {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.7rem;
+    min-width: 45px;
+  }
+  
+  .category-box h3 {
+    font-size: 1.2rem;
+  }
+  
+  .category-image-wrapper {
+    padding: 0 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .category-box p {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
 }
+
+@media (max-width: 480px) {
+  .category-anchors {
+    gap: 0.6rem;
+  }
+  
+  .category-anchor-btn {
+    min-width: 100px;
+    padding: 0.6rem 0.9rem;
+  }
+  
+  .category-badge {
+    font-size: 1.1rem;
+  }
+}
+
 /* Da anchor scroll ne "sakrije" naslov iza sticky navbar-a */
 .category-box--long {
-  scroll-margin-top: 110px; /* po potrebi 90-130px */
+  scroll-margin-top: 110px;
 }
 
 .highlight {
   color: #ffd700;
   font-weight: 700;
+}
+
+/* ============================================
+   ENROLLMENT MODAL STYLES
+   ============================================ */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  margin: auto;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.modal-close {
+  color: #aaa;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  line-height: 1;
+  z-index: 1;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #ffd700;
+}
+
+#enrollmentForm .form-group {
+  margin-bottom: 1.3rem;
+}
+
+#enrollmentForm .form-group label {
+  display: block;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+#enrollmentForm .required {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+#enrollmentForm input[type="text"],
+#enrollmentForm input[type="tel"],
+#enrollmentForm input[type="email"],
+#enrollmentForm textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: #2b2b2b;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 6px;
+  color: #f2f2f2;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#enrollmentForm input:focus,
+#enrollmentForm textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+  background: #333;
+}
+
+#enrollmentForm textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+#enrollmentForm .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+}
+
+#enrollmentForm .checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #d0d0d0;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 0.95rem;
+}
+
+#enrollmentForm .checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #ffd700;
+}
+
+#enrollmentForm .checkbox-consent {
+  background: rgba(255, 215, 0, 0.05);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  margin-top: 0.5rem;
+}
+
+#enrollmentForm .checkbox-consent label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+#enrollmentForm .checkbox-consent input[type="checkbox"] {
+  margin-top: 0.2rem;
+  min-width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #ffd700;
+}
+
+#enrollmentForm .checkbox-consent span {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+}
+
+#enrollmentForm .submit-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: #ffd700;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1.5rem;
+}
+
+#enrollmentForm .submit-btn:hover {
+  background: #ffed4e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+#enrollmentForm .submit-btn:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.6;
+}
+
+/* Mobile Responsive for Modal */
+@media (max-width: 768px) {
+  .modal {
+    padding: 10px;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .modal-close {
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 2rem;
+  }
+  
+  #enrollmentForm input,
+  #enrollmentForm textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  #enrollmentForm .form-group {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.2rem;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.4rem;
+  }
+  
+  #enrollmentForm .submit-btn {
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+  }
 }

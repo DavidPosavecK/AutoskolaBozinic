@@ -174,7 +174,7 @@
       
       <!-- Enrollment Button -->
       <div class="enrollment-button-container">
-        <a href="#" class="enrollment-button">Upiši se</a>
+        <button class="enrollment-button enroll-btn">Upiši se</button>
       </div>
     </section>
     
@@ -201,7 +201,87 @@
         </a>
       </div>
     </footer>
+
+    <!-- Enrollment Modal -->
+    <div id="enrollmentModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>E-Upisi</h2>
+        <form id="enrollmentForm">
+          <div class="form-group">
+            <label for="ime_prezime">Ime i prezime: <span class="required">*</span></label>
+            <input type="text" id="ime_prezime" name="ime_prezime" required />
+          </div>
+
+          <div class="form-group">
+            <label for="ime_roditelja">Ime i prezime roditelja / skrbnika: <span class="required">*</span></label>
+            <input type="text" id="ime_roditelja" name="ime_roditelja" required />
+          </div>
+
+          <div class="form-group">
+            <label for="datum_mjesto_rodenja">Datum i mjesto rođenja: <span class="required">*</span></label>
+            <input type="text" id="datum_mjesto_rodenja" name="datum_mjesto_rodenja" placeholder="npr. 01.01.2000., Zagreb" required />
+          </div>
+
+          <div class="form-group">
+            <label for="adresa">Adresa i poštanski broj: <span class="required">*</span></label>
+            <input type="text" id="adresa" name="adresa" placeholder="npr. Ulica 123, 42000 Grad" required />
+          </div>
+
+          <div class="form-group">
+            <label for="telefon">Broj telefona / mobitela: <span class="required">*</span></label>
+            <input type="tel" id="telefon" name="telefon" placeholder="npr. 098 123 4567" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail adresa:</label>
+            <input type="email" id="email" name="email" placeholder="ime@primjer.com" />
+          </div>
+
+          <div class="form-group">
+            <label>Kategorija koju polažeš: <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="kategorija" value="A KATEGORIJA" /> A KATEGORIJA</label>
+              <label><input type="checkbox" name="kategorija" value="A1 KATEGORIJA" /> A1 KATEGORIJA</label>
+              <label><input type="checkbox" name="kategorija" value="A2 KATEGORIJA" /> A2 KATEGORIJA</label>
+              <label><input type="checkbox" name="kategorija" value="B KATEGORIJA" /> B KATEGORIJA</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="oib">OIB: <span class="required">*</span></label>
+            <input type="text" id="oib" name="oib" pattern="[0-9]{11}" maxlength="11" placeholder="11 znamenki" required />
+          </div>
+
+          <div class="form-group">
+            <label for="broj_uvjerenja">Broj liječničkog uvjerenja: <span class="required">*</span></label>
+            <input type="text" id="broj_uvjerenja" name="broj_uvjerenja" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mjesto_vrijeme_izdavanja">Mjesto i vrijeme izdavanja liječničkog uvjerenja: <span class="required">*</span></label>
+            <input type="text" id="mjesto_vrijeme_izdavanja" name="mjesto_vrijeme_izdavanja" placeholder="npr. Ivanec, 15.01.2025." required />
+          </div>
+
+          <div class="form-group">
+            <label for="napomena">Dodatna napomena:</label>
+            <textarea id="napomena" name="napomena" rows="4" placeholder="Unesite dodatne informacije ili napomene..."></textarea>
+          </div>
+
+          <div class="form-group checkbox-consent">
+            <label>
+              <input type="checkbox" name="suglasnost" required />
+              <span>Suglasan/a sam da se moji osobni podaci koriste u svrhu obavljanja osnovne djelatnosti Autoškole Božinić d.o.o. <span class="required">*</span></span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Pošalji</button>
+        </form>
+      </div>
+    </div>
+
     <script src="./navbar.js"></script>
     <script src="./road-journey.js"></script>
+    <script src="./enrollment-form.js"></script>
   </body>
 </html>
