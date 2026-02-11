@@ -241,11 +241,48 @@
           <div class="form-group">
             <label>Kategorija koju polažeš: <span class="required">*</span></label>
             <div class="checkbox-group">
-              <label><input type="checkbox" name="kategorija" value="A KATEGORIJA" /> A KATEGORIJA</label>
-              <label><input type="checkbox" name="kategorija" value="A1 KATEGORIJA" /> A1 KATEGORIJA</label>
-              <label><input type="checkbox" name="kategorija" value="A2 KATEGORIJA" /> A2 KATEGORIJA</label>
-              <label><input type="checkbox" name="kategorija" value="B KATEGORIJA" /> B KATEGORIJA</label>
+              <label><input type="radio" name="kategorija" value="A KATEGORIJA" required /> A KATEGORIJA</label>
+              <label><input type="radio" name="kategorija" value="A1 KATEGORIJA" /> A1 KATEGORIJA</label>
+              <label><input type="radio" name="kategorija" value="A2 KATEGORIJA" /> A2 KATEGORIJA</label>
+              <label><input type="radio" name="kategorija" value="B KATEGORIJA" /> B KATEGORIJA</label>
             </div>
+          </div>
+          <div class="form-group" id="existingCategoryGroup" style="display:none;">
+          <label for="postojeca_kategorija">
+            Koju kategoriju već posjeduješ? <span class="required">*</span>
+          </label>
+
+          <select id="postojeca_kategorija" name="postojeca_kategorija">
+            <option value="">-- Odaberi --</option>
+            <option value="Nemam vozačku">Nemam vozačku</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="Ostalo">Ostalo</option>
+          </select>
+
+          <div id="existingCategoryOtherWrap" style="display:none; margin-top: 0.8rem;">
+            <label for="postojeca_kategorija_ostalo">Upiši kategoriju:</label>
+            <input
+              type="text"
+              id="postojeca_kategorija_ostalo"
+              name="postojeca_kategorija_ostalo"
+              placeholder="npr. BE, C1, CE..."
+            />
+          </div>
+        </div>
+
+          <div class="form-group">
+            <label for="broj_vozacke">
+              Broj vozačke dozvole: <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="broj_vozacke"
+              name="broj_vozacke"
+              required
+            />
           </div>
 
           <div class="form-group">
