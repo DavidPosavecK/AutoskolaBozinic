@@ -3,322 +3,162 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kako do vozačke dozvole - korak po korak vodič kroz proces polaganja vozačkog ispita. Saznajte sve što trebate znati o upisu, predavanjima, vožnji i polaganju." />
-    <meta name="keywords" content="kako do vozačke, polaganje vozačkog ispita, upis u autoškolu, koraci do vozačke, vozački ispit, teorijski ispit, praktični ispit" />
+    <meta name="description" content="Kako do vozačke dozvole - korak po korak vodič kroz proces polaganja vozačkog ispita." />
+    <meta name="keywords" content="kako do vozačke, polaganje vozačkog ispita, upis u autoškolu, koraci do vozačke" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.autoskolabozinic.hr/kakodo.html" />
-    
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.autoskolabozinic.hr/kakodo.html" />
     <meta property="og:title" content="Kako do vozačke - Autoškola Božinić" />
-    <meta property="og:description" content="Korak po korak vodič kroz proces polaganja vozačkog ispita." />
-    
-    <title>Kako do vozačke dozvole - Korak po korak vodič | Autoškola Božinić</title>
+    <title>Kako do vozačke - Korak po korak vodič | Autoškola Božinić</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{gold:'#fbbf24'}}}}</script>
     <link rel="stylesheet" href="styles.css" />
-    
-    <!-- Structured Data for HowTo -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "Kako do vozačke dozvole",
-      "description": "Korak po korak vodič kroz proces polaganja vozačkog ispita",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Obavijest o upisu",
-          "text": "Prvi korak je obavijest o upisu u autoškolu"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Upiši se u PROMETNU",
-          "text": "Upiši se u PROMETNU sa potrebnim dokumentima"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Kreni na prometna predavanja",
-          "text": "Pohadaj obavezna prometna predavanja"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Položi ispit iz prometnih pravila",
-          "text": "Položi teorijski ispit iz prometnih pravila"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Kreni na vožnju",
-          "text": "Započni praktičnu obuku vožnje"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Odvozi 35 sati",
-          "text": "Odvozi potrebne sate vožnje"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Položi ispit iz vožnje",
-          "text": "Položi praktični ispit iz vožnje"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Vozačka Dozvola",
-          "text": "Čestitamo! Uspješno ste završili sve korake i dobili vozačku dozvolu"
-        }
-      ]
-    }
-    </script>
   </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <a href="index.html">
-          <div class="logo">
-            <img src="./slike/logo.png" alt="Autoškola Božinić" />
-          </div>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Naslovna</a></li>
-          <li><a href="kakodo.html">Kako do vozačke</a></li>
-          <li><a href="kategorije.html">Kategorije</a></li>
-          <li><a href="obavijesti.html">Obavijesti</a></li>
-          <li><a href="onama.html">O nama</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+  <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-amber-500/10 shadow-lg">
+      <nav class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto relative w-full">
+        <a href="index.html"><img src="./slike/logo.png" alt="Autoškola Božinić" class="h-11 md:h-12 w-auto" /></a>
+        <ul id="navLinks" class="absolute md:relative top-full left-0 right-0 md:top-auto md:left-auto md:right-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 text-sm font-medium max-md:py-4">
+          <li><a href="index.html" class="hover:text-amber-400 transition">Naslovna</a></li>
+          <li><a href="kakodo.html" class="text-amber-400">Kako do vozačke</a></li>
+          <li><a href="kategorije.html" class="hover:text-amber-400 transition">Kategorije</a></li>
+          <li><a href="obavijesti.html" class="hover:text-amber-400 transition">Obavijesti</a></li>
+          <li><a href="onama.html" class="hover:text-amber-400 transition">O nama</a></li>
+          <li><a href="kontakt.html" class="hover:text-amber-400 transition">Kontakt</a></li>
         </ul>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <button id="hamburger" class="md:hidden hamburger flex flex-col justify-center gap-1.5 p-2" aria-label="Meni"><span></span><span></span><span></span></button>
       </nav>
     </header>
-    <div class="page-wrapper">
-      <section class="hero">
-        <div class="hero-content">
-          <h1>Kako do vozačke</h1>
+
+    <main class="flex-1 pt-[72px]">
+      <section class="bg-slate-900 py-16 px-4">
+        <h1 class="text-4xl font-bold text-amber-400 text-center">Kako do vozačke</h1>
+      </section>
+
+      <section class="py-12 md:py-16 px-4 max-w-4xl mx-auto">
+        <div class="space-y-12">
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">1</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Obavi liječnički pregled za vozača</h3>
+              <p class="text-slate-400 leading-relaxed">Prvi korak u procesu dobivanja vozačke dozvole.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">2</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Upiši se u Autoškolu L-PROM-BOŽINIĆ</h3>
+              <p class="text-slate-400 leading-relaxed">Potrebno donijeti osobnu iskaznicu i liječničku potvrdu. Ako još nemaš 18 godina, na upis moraš doći s jednim od roditelja/skrbnika.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">3</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Kreni na nastavu iz Prometnih propisa</h3>
+              <p class="text-slate-400 leading-relaxed">Odaberi jutarnji ili poslijepodnevni termin i odslušaj teorijsku nastavu. Za nastavu je osigurana sva potrebna literatura.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">4</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Položi ispit iz Prometnih propisa</h3>
+              <p class="text-slate-400 leading-relaxed">Nakon nastave prijavi i položi ispit iz Prometnih propisa.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">5</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Kreni na vožnju</h3>
+              <p class="text-slate-400 leading-relaxed">Nakon položenog ispita izaberi instruktora i kreni s vožnjom.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">6</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Prva pomoć</h3>
+              <p class="text-slate-400 leading-relaxed">Do polaganja ispita odslušaj tečaj Pružanja prve pomoći i položi ispit.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">7</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Položi ispit iz vožnje</h3>
+              <p class="text-slate-400 leading-relaxed">Nakon odvoženih 35 sati prijavi i položi ispit iz vožnje.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center font-bold text-amber-400">8</div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-100 mb-2">Izvadi vozačku dozvolu</h3>
+              <p class="text-slate-400 leading-relaxed">Nakon položenog ispita izvadi vozačku dozvolu.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/30 border-2 border-emerald-500 flex items-center justify-center text-xl">✓</div>
+            <div>
+              <h3 class="text-xl font-bold text-emerald-400">Vozačka Dozvola</h3>
+              <p class="text-slate-400 leading-relaxed">Čestitamo! Uspješno ste završili sve korake.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center py-12">
+          <button class="enroll-btn px-10 py-4 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition shadow-lg hover:shadow-amber-500/25 hover:-translate-y-1">
+            Upiši se
+          </button>
         </div>
       </section>
-    <section class="steps-timeline-section">
-      <div class="steps-container">
-        <div class="step-item" data-step="1">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Obavi liječnički pregled za vozača</h3>
-            <p>Prvi korak u procesu dobivanja vozačke dozvole.</p>
-          </div>
-        </div>
 
-        <div class="step-item" data-step="2">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Upiši se u Autoškolu L-PROM-BOŽINIĆ</h3>
-            <p>Potrebno donijeti osobnu iskaznicu i liječničku potvrdu. Ako još nemaš 18 godina, na upis moraš doći s jednim od roditelja/skrbnika. Kod upisa odredi kad želiš početi s nastavom i koji ti termini najviše odgovaraju.</p>
-          </div>
-        </div>
+      <section class="bg-slate-900 py-12 px-4">
+        <p class="text-center text-lg text-slate-300">Sretnu i sigurnu vožnju želi ti <strong class="text-amber-400">Autoškola Božinić!</strong></p>
+      </section>
+    </main>
 
-        <div class="step-item" data-step="3">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Kreni na nastavu iz Prometnih propisa</h3>
-            <p>Odaberi jutarnji ili poslijepodnevni termin i odslušaj teorijsku nastavu iz Prometnih propisa koja traje 2 tjedna. Za nastavu je osigurana sva potrebna literatura te ćeš dobiti pristupne kodove za online učenje i rješavanje testova. Za sve nejasnoće moguće su konzultacije sa predavačem.</p>
-          </div>
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 px-4 mt-auto">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-400 text-sm">&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/p/Autoškola-Božinić-100064070889004/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="./slike/facebook-icon.png" alt="Facebook" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="./slike/Instagram_icon.png.webp" alt="Instagram" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
         </div>
-
-        <div class="step-item" data-step="4">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Položi ispit iz Prometnih propisa</h3>
-            <p>Nakon nastave prijavi i položi ispit iz Prometnih propisa.</p>
-          </div>
-        </div>
-
-        <div class="step-item" data-step="5">
-          <div class="step-number">5</div>
-          <div class="step-content">
-            <h3>Kreni na vožnju</h3>
-            <p>Nakon položenog ispita iz teoretskog dijela izaberi instruktora i kreni s vožnjom.</p>
-          </div>
-        </div>
-
-        <div class="step-item" data-step="6">
-          <div class="step-number">6</div>
-          <div class="step-content">
-            <h3>Prva pomoć</h3>
-            <p>Do polaganja ispita iz vožnje odslušaj tečaj Pružanja prve pomoći te položi ispit iz Prve pomoći.</p>
-          </div>
-        </div>
-
-        <div class="step-item" data-step="7">
-          <div class="step-number">7</div>
-          <div class="step-content">
-            <h3>Položi ispit iz vožnje</h3>
-            <p>Nakon odvoženih 35 sati na vozilu prijavi i položi ispit iz vožnje.</p>
-          </div>
-        </div>
-
-        <div class="step-item" data-step="8">
-          <div class="step-number">8</div>
-          <div class="step-content">
-            <h3>Izvadi vozačku dozvolu</h3>
-            <p>Nakon položenog ispita iz vožnje izvadi vozačku dozvolu.</p>
-          </div>
-        </div>
-
-        <div class="step-item step-final">
-          <div class="step-content">
-            <h3>Vozačka Dozvola</h3>
-            <p>Čestitamo! Uspješno ste završili sve korake.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Enrollment Button -->
-      <div class="enrollment-button-container">
-        <button class="enrollment-button enroll-btn">Upiši se</button>
-      </div>
-    </section>
-    
-    <section class="how-to-license">
-      <div class="container">
-        <p class="final-message">
-          Sretnu i sigurnu vožnju želi ti <strong>Autoškola Božinić!</strong>
-        </p>
-      </div>
-    </section>
-    <footer>
-      <p>&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
-      <div class="social-icons">
-        <a
-          href="https://www.facebook.com/p/Auto%C5%A1kola-Bo%C5%BEini%C4%87-100064070889004/"
-          target="_blank"
-          aria-label="Facebook"
-          rel="noopener noreferrer"
-        >
-          <img src="./slike/facebook-icon.png" alt="Facebook" />
-        </a>
-        <a href="#" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
-          <img src="./slike/Instagram_icon.png.webp" alt="Instagram" />
-        </a>
       </div>
     </footer>
 
     <!-- Enrollment Modal -->
-    <div id="enrollmentModal" class="modal">
-      <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <h2>E-Upisi</h2>
-        <form id="enrollmentForm">
-          <div class="form-group">
-            <label for="ime_prezime">Ime i prezime: <span class="required">*</span></label>
-            <input type="text" id="ime_prezime" name="ime_prezime" required />
-          </div>
-
-          <div class="form-group">
-            <label for="ime_roditelja">Ime i prezime roditelja / skrbnika: <span class="required">*</span></label>
-            <input type="text" id="ime_roditelja" name="ime_roditelja" required />
-          </div>
-
-          <div class="form-group">
-            <label for="datum_mjesto_rodenja">Datum i mjesto rođenja: <span class="required">*</span></label>
-            <input type="text" id="datum_mjesto_rodenja" name="datum_mjesto_rodenja" placeholder="npr. 01.01.2000., Zagreb" required />
-          </div>
-
-          <div class="form-group">
-            <label for="adresa">Adresa i poštanski broj: <span class="required">*</span></label>
-            <input type="text" id="adresa" name="adresa" placeholder="npr. Ulica 123, 42000 Grad" required />
-          </div>
-
-          <div class="form-group">
-            <label for="telefon">Broj telefona / mobitela: <span class="required">*</span></label>
-            <input type="tel" id="telefon" name="telefon" placeholder="npr. 098 123 4567" required />
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-Mail adresa:</label>
-            <input type="email" id="email" name="email" placeholder="ime@primjer.com" />
-          </div>
-
-          <div class="form-group">
-            <label>Kategorija koju polažeš: <span class="required">*</span></label>
-            <div class="checkbox-group">
-              <label><input type="radio" name="kategorija" value="A KATEGORIJA" required /> A KATEGORIJA</label>
-              <label><input type="radio" name="kategorija" value="A1 KATEGORIJA" /> A1 KATEGORIJA</label>
-              <label><input type="radio" name="kategorija" value="A2 KATEGORIJA" /> A2 KATEGORIJA</label>
-              <label><input type="radio" name="kategorija" value="B KATEGORIJA" /> B KATEGORIJA</label>
-            </div>
-          </div>
-          <div class="form-group" id="existingCategoryGroup" style="display:none;">
-          <label for="postojeca_kategorija">
-            Koju kategoriju već posjeduješ? <span class="required">*</span>
-          </label>
-
-          <select id="postojeca_kategorija" name="postojeca_kategorija">
-            <option value="">-- Odaberi --</option>
-            <option value="Nemam vozačku">Nemam vozačku</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="Ostalo">Ostalo</option>
-          </select>
-
-          <div id="existingCategoryOtherWrap" style="display:none; margin-top: 0.8rem;">
-            <label for="postojeca_kategorija_ostalo">Upiši kategoriju:</label>
-            <input
-              type="text"
-              id="postojeca_kategorija_ostalo"
-              name="postojeca_kategorija_ostalo"
-              placeholder="npr. BE, C1, CE..."
-            />
-          </div>
-        </div>
-
-          <div class="form-group">
-            <label for="broj_vozacke">
-              Broj vozačke dozvole: <span class="required">*</span>
-            </label>
-            <input
-              type="text"
-              id="broj_vozacke"
-              name="broj_vozacke"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="oib">OIB: <span class="required">*</span></label>
-            <input type="text" id="oib" name="oib" pattern="[0-9]{11}" maxlength="11" placeholder="11 znamenki" required />
-          </div>
-
-          <div class="form-group">
-            <label for="broj_uvjerenja">Broj liječničkog uvjerenja: <span class="required">*</span></label>
-            <input type="text" id="broj_uvjerenja" name="broj_uvjerenja" required />
-          </div>
-
-          <div class="form-group">
-            <label for="mjesto_vrijeme_izdavanja">Mjesto i vrijeme izdavanja liječničkog uvjerenja: <span class="required">*</span></label>
-            <input type="text" id="mjesto_vrijeme_izdavanja" name="mjesto_vrijeme_izdavanja" placeholder="npr. Ivanec, 15.01.2025." required />
-          </div>
-
-          <div class="form-group">
-            <label for="napomena">Dodatna napomena:</label>
-            <textarea id="napomena" name="napomena" rows="4" placeholder="Unesite dodatne informacije ili napomene..."></textarea>
-          </div>
-
-          <div class="form-group checkbox-consent">
-            <label>
-              <input type="checkbox" name="suglasnost" required />
-              <span>Suglasan/a sam da se moji osobni podaci koriste u svrhu obavljanja osnovne djelatnosti Autoškole Božinić d.o.o. <span class="required">*</span></span>
-            </label>
-          </div>
-
-          <button type="submit" class="submit-btn">Pošalji</button>
+    <div id="enrollmentModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto" style="display: none;">
+      <div class="bg-slate-900 border border-amber-500/30 rounded-xl max-w-lg w-full my-8 p-6 relative shadow-2xl">
+        <button class="modal-close absolute top-4 right-4 text-3xl text-slate-400 hover:text-amber-400 cursor-pointer leading-none">&times;</button>
+        <h2 class="text-2xl font-bold text-amber-400 mb-6 text-center">E-Upisi</h2>
+        <form id="enrollmentForm" class="space-y-4">
+          <div><label class="block text-slate-300 text-sm mb-1">Ime i prezime: <span class="text-red-400">*</span></label><input type="text" name="ime_prezime" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Ime i prezime roditelja / skrbnika: <span class="text-red-400">*</span></label><input type="text" name="ime_roditelja" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Datum i mjesto rođenja: <span class="text-red-400">*</span></label><input type="text" name="datum_mjesto_rodenja" placeholder="npr. 01.01.2000., Zagreb" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Adresa i poštanski broj: <span class="text-red-400">*</span></label><input type="text" name="adresa" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Broj telefona: <span class="text-red-400">*</span></label><input type="tel" name="telefon" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">E-Mail:</label><input type="email" name="email" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-2">Kategorija: <span class="text-red-400">*</span></label><div class="space-y-2"><label class="flex items-center gap-2"><input type="radio" name="kategorija" value="A KATEGORIJA" required /> A</label><label class="flex items-center gap-2"><input type="radio" name="kategorija" value="A1 KATEGORIJA" /> A1</label><label class="flex items-center gap-2"><input type="radio" name="kategorija" value="A2 KATEGORIJA" /> A2</label><label class="flex items-center gap-2"><input type="radio" name="kategorija" value="B KATEGORIJA" /> B</label></div></div>
+          <div id="existingCategoryGroup" style="display:none"><label class="block text-slate-300 text-sm mb-1">Postojeća kategorija: <span class="text-red-400">*</span></label><select id="postojeca_kategorija" name="postojeca_kategorija" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white"><option value="">-- Odaberi --</option><option value="Nemam vozačku">Nemam vozačku</option><option value="A1">A1</option><option value="A2">A2</option><option value="A">A</option><option value="B">B</option><option value="Ostalo">Ostalo</option></select><div id="existingCategoryOtherWrap" class="mt-2" style="display:none"><label class="block text-slate-300 text-sm mb-1">Upiši kategoriju:</label><input type="text" id="postojeca_kategorija_ostalo" name="postojeca_kategorija_ostalo" placeholder="npr. BE, C1..." class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white" /></div></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Broj vozačke: <span class="text-red-400">*</span></label><input type="text" name="broj_vozacke" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">OIB: <span class="text-red-400">*</span></label><input type="text" name="oib" pattern="[0-9]{11}" maxlength="11" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Broj liječničkog uvjerenja: <span class="text-red-400">*</span></label><input type="text" name="broj_uvjerenja" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Mjesto i vrijeme izdavanja: <span class="text-red-400">*</span></label><input type="text" name="mjesto_vrijeme_izdavanja" required class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500" /></div>
+          <div><label class="block text-slate-300 text-sm mb-1">Dodatna napomena:</label><textarea name="napomena" rows="3" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white focus:border-amber-500 resize-none"></textarea></div>
+          <div class="p-4 bg-amber-500/10 rounded-lg border border-amber-500/20"><label class="flex gap-2 cursor-pointer"><input type="checkbox" name="suglasnost" required class="mt-1" /><span class="text-slate-300 text-sm">Suglasan/a sam da se moji osobni podaci koriste u svrhu obavljanja osnovne djelatnosti Autoškole Božinić d.o.o. <span class="text-red-400">*</span></span></label></div>
+          <button type="submit" class="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition">Pošalji</button>
         </form>
       </div>
     </div>
 
     <script src="./navbar.js"></script>
-    <script src="./road-journey.js"></script>
     <script src="./enrollment-form.js"></script>
   </body>
 </html>

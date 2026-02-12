@@ -230,30 +230,36 @@ function displayNews(newsItems) {
   const loadingMessage = document.getElementById('loading-message');
   const errorMessage = document.getElementById('error-message');
   
-  if (loadingMessage) loadingMessage.style.display = 'none';
+  if (loadingMessage) { loadingMessage.style.display = 'none'; loadingMessage.classList.add('hidden'); }
   
   if (!newsItems || newsItems.length === 0) {
-    if (errorMessage) errorMessage.style.display = 'block';
+    if (errorMessage) { errorMessage.classList.remove('hidden'); errorMessage.style.display = ''; }
     if (newsList) {
-      newsList.innerHTML = '<p style="text-align: center; color: #ccc;">Trenutno nema obavijesti.</p>';
+      newsList.innerHTML = '<p class="text-center text-slate-400 py-8">Trenutno nema obavijesti.</p>';
     }
     return;
   }
   
-  if (errorMessage) errorMessage.style.display = 'none';
+  if (errorMessage) { errorMessage.classList.add('hidden'); }
   
   // Sort by date (newest first)
   newsItems.sort((a, b) => new Date(b.date) - new Date(a.date));
-  
+
+  // Limit items on homepage preview (data-limit attribute)
+  const limit = newsList?.dataset?.limit ? parseInt(newsList.dataset.limit, 10) : null;
+  if (limit && limit > 0) {
+    newsItems = newsItems.slice(0, limit);
+  }
+
   if (newsList) {
     newsList.innerHTML = newsItems.map(item => `
-      <article class="news-item">
-        <div class="news-header">
-          <div class="news-date">${formatDate(item.date)}</div>
-          ${item.category ? `<span class="news-category">${item.category}</span>` : ''}
+      <article class="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-amber-500/30 transition">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="text-amber-400 text-sm font-medium">${formatDate(item.date)}</span>
+          ${item.category ? `<span class="px-2 py-0.5 text-xs rounded-full bg-amber-500/20 text-amber-400">${escapeHtml(item.category)}</span>` : ''}
         </div>
-        <h2 class="news-title">${escapeHtml(item.title)}</h2>
-        <div class="news-content">${formatContent(item.content)}</div>
+        <h2 class="text-xl font-bold text-slate-100 mb-2">${escapeHtml(item.title)}</h2>
+        <div class="text-slate-400 leading-relaxed">${formatContent(item.content)}</div>
       </article>
     `).join('');
   }
