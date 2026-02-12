@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   enrollButtons.forEach((button) => {
     button.addEventListener('click', function (e) {
       e.preventDefault();
-      modal.style.display = 'flex';
+      modal.style.display = 'flex'; modal.classList.add('flex'); modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
 
       // reset “postojeća kategorija” UI kada se otvori
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Zatvori modal
   function closeModal() {
-    modal.style.display = 'none';
+    modal.style.display = 'none'; modal.classList.add('hidden'); modal.classList.remove('flex');
     document.body.style.overflow = 'auto';
   }
 

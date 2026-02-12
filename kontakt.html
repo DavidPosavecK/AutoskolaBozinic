@@ -3,136 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Kontaktirajte Autoškolu Božinić. Adresa: Trg hrvatskih Ivanovaca 10/2, Ivanec. Telefon: 042 783 750. Email: Info.autoskolabozinic@gmail.com. Radno vrijeme: Pon-Pet 8:00-15:30."
-    />
-    <meta
-      name="keywords"
-      content="kontakt autoškola Božinić, adresa autoškole Ivanec, telefon autoškola, email autoškola, radno vrijeme autoškole"
-    />
+    <meta name="description" content="Kontakt - Autoškola Božinić. Adresa: Trg hrvatskih Ivanovaca 10/2, Ivanec. Tel: 042 783 750." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.autoskolabozinic.hr/kontakt.html" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://www.autoskolabozinic.hr/kontakt.html"
-    />
-    <meta property="og:title" content="Kontakt - Autoškola Božinić" />
-    <meta
-      property="og:description"
-      content="Kontaktirajte nas: Trg hrvatskih Ivanovaca 10/2, Ivanec. Tel: 042 783 750"
-    />
-
-    <title>Kontakt - Autoškola Božinić | Adresa i kontakt podaci</title>
+    <title>Kontakt - Autoškola Božinić</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{gold:'#fbbf24'}}}}</script>
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- Structured Data for Contact -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "mainEntity": {
-          "@type": "DrivingSchool",
-          "name": "Autoškola Božinić",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Trg hrvatskih Ivanovaca 10/2",
-            "addressLocality": "Ivanec",
-            "addressCountry": "HR"
-          },
-          "telephone": "+38542783750",
-          "email": "Info.autoskolabozinic@gmail.com",
-          "openingHours": "Mo-Fr 08:00-15:30"
-        }
-      }
-    </script>
   </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <a href="index.html">
-          <div class="logo">
-            <img src="./slike/logo.png" alt="Autoškola Božinić" />
-          </div>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Naslovna</a></li>
-          <li><a href="kakodo.html">Kako do vozačke</a></li>
-          <li><a href="kategorije.html">Kategorije</a></li>
-          <li><a href="obavijesti.html">Obavijesti</a></li>
-          <li><a href="onama.html">O nama</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+  <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-amber-500/10 shadow-lg">
+      <nav class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto relative w-full">
+        <a href="index.html"><img src="./slike/logo.png" alt="Autoškola Božinić" class="h-11 md:h-12 w-auto" /></a>
+        <ul id="navLinks" class="absolute md:relative top-full left-0 right-0 md:top-auto md:left-auto md:right-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 text-sm font-medium max-md:py-4">
+          <li><a href="index.html" class="hover:text-amber-400 transition">Naslovna</a></li>
+          <li><a href="kakodo.html" class="hover:text-amber-400 transition">Kako do vozačke</a></li>
+          <li><a href="kategorije.html" class="hover:text-amber-400 transition">Kategorije</a></li>
+          <li><a href="obavijesti.html" class="hover:text-amber-400 transition">Obavijesti</a></li>
+          <li><a href="onama.html" class="hover:text-amber-400 transition">O nama</a></li>
+          <li><a href="kontakt.html" class="text-amber-400">Kontakt</a></li>
         </ul>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <button id="hamburger" class="md:hidden hamburger flex flex-col justify-center gap-1.5 p-2" aria-label="Meni"><span></span><span></span><span></span></button>
       </nav>
     </header>
-    <div class="page-wrapper">
-      <section class="hero">
-        <div class="hero-content">
-          <h1>Kontakt</h1>
-        </div>
-      </section>
-      <section class="contact-section">
-        <div class="contact-container">
-          <h2>Kontaktirajte nas</h2>
-          <p>
-            Želite upisati autoškolu? Imate pitanja ili nejasnoće, kontaktirajte
-            nas ili posjetite u našoj autoškoli.
-          </p>
 
-          <div class="contact-info">
-            <p><strong>Tel:</strong> 042 783 750</p>
-            <p><strong>Email:</strong> Info.autoskolabozinic@gmail.com</p>
-            <p>
-              <strong>Adresa:</strong> Trg hrvatskih Ivanovaca 10/2, Ivanec,
-              Croatia
-            </p>
-            <p><strong>Radno vrijeme ureda:</strong> Pon-Pet 8:00h - 15:30h</p>
-          </div>
+    <main class="flex-1 pt-[72px]">
+      <section class="bg-slate-900 py-12 px-4">
+        <h1 class="text-4xl font-bold text-amber-400 text-center">Kontakt</h1>
+      </section>
+
+      <section class="py-12 px-4 max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-amber-400 mb-4">Kontaktirajte nas</h2>
+        <p class="text-slate-400 mb-8">Želite upisati autoškolu? Imate pitanja? Kontaktirajte nas ili posjetite u našoj autoškoli.</p>
+        <div class="space-y-4 rounded-xl bg-slate-800/50 border border-slate-700 p-6">
+          <p class="flex items-center gap-3"><span class="text-amber-400 font-semibold min-w-[100px]">Tel:</span><a href="tel:+38542783750" class="text-slate-300 hover:text-amber-400">042 783 750</a></p>
+          <p class="flex items-center gap-3"><span class="text-amber-400 font-semibold min-w-[100px]">Email:</span><a href="mailto:Info.autoskolabozinic@gmail.com" class="text-slate-300 hover:text-amber-400">Info.autoskolabozinic@gmail.com</a></p>
+          <p class="flex items-start gap-3"><span class="text-amber-400 font-semibold min-w-[100px]">Adresa:</span><span class="text-slate-300">Trg hrvatskih Ivanovaca 10/2, Ivanec, Croatia</span></p>
+          <p class="flex items-center gap-3"><span class="text-amber-400 font-semibold min-w-[100px]">Radno vrijeme:</span><span class="text-slate-300">Pon-Pet 8:00 - 15:30</span></p>
         </div>
       </section>
 
-      <section class="map-section">
-        <h2>Gdje se nalazimo</h2>
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d690.0787827546667!2d16.12356050709773!3d46.224077555522435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765f97d76fe7765%3A0xbe3969e31bd77a64!2sTrg%20hrvatskih%20Ivanovaca%2010-2%2C%2042240%2C%20Ivanec!5e0!3m2!1sen!2shr!4v1747678347082!5m2!1sen!2shr"
-            width="100%"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+      <section class="py-12 px-4 bg-slate-900/30">
+        <h2 class="text-2xl font-bold text-amber-400 text-center mb-8">Gdje se nalazimo</h2>
+        <div class="max-w-5xl mx-auto rounded-xl overflow-hidden border border-slate-700 shadow-xl">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d690.0787827546667!2d16.12356050709773!3d46.224077555522435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765f97d76fe7765%3A0xbe3969e31bd77a64!2sTrg%20hrvatskih%20Ivanovaca%2010-2%2C%2042240%2C%20Ivanec!5e0!3m2!1sen!2shr!4v1747678347082!5m2!1sen!2shr" width="100%" height="450" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
-    </div>
-    <footer>
-      <p>&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
-      <div class="social-icons">
-        <a
-          href="https://www.facebook.com/p/Auto%C5%A1kola-Bo%C5%BEini%C4%87-100064070889004/"
-          target="_blank"
-          aria-label="Facebook"
-          rel="noopener noreferrer"
-        >
-          <img src="./slike/facebook-icon.png" alt="Facebook" />
-        </a>
-        <a
-          href="#"
-          target="_blank"
-          aria-label="Instagram"
-          rel="noopener noreferrer"
-        >
-          <img src="./slike/Instagram_icon.png.webp" alt="Instagram" />
-        </a>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 px-4 mt-auto">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-400 text-sm">&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/p/Autoškola-Božinić-100064070889004/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="./slike/facebook-icon.png" alt="Facebook" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="./slike/Instagram_icon.png.webp" alt="Instagram" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
+        </div>
       </div>
     </footer>
     <script src="./navbar.js"></script>
