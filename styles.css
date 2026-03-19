@@ -1,20 +1,75 @@
 /* Custom overrides - Tailwind CDN used in HTML */
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: #000000;
+  color: #fef9c3;
+}
+
+/* Navbar links on mobile */
+#navLinks {
+  transition: all 0.3s ease;
+}
+
+/* Hamburger */
 .hamburger span {
   display: block;
   width: 24px;
   height: 2px;
-  background: #fbbf24;
+  background: #facc15;
+  border-radius: 9999px;
   transition: all 0.3s ease;
 }
-.hamburger span:nth-child(2) { margin: 6px 0; }
-.hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+
+/* General cards/news items */
+.news-card,
+#news-list > * {
+  background: #111111;
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  color: #fefce8;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
+
+/* Links */
+a {
+  transition: all 0.25s ease;
 }
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Buttons */
+.btn-yellow {
+  background: #facc15;
+  color: #000;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.9rem 1.5rem;
+}
+
+.btn-yellow:hover {
+  background: #fde047;
+}
+
+/* Footer/social icons */
+footer img {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(65%) saturate(680%) hue-rotate(359deg) brightness(101%) contrast(96%);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+footer img:hover {
+  transform: scale(1.08);
+}
+
+/* Optional yellow glow for headings */
+h1, h2, h3 {
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.08);
 }
 
 @media (max-width: 768px) {

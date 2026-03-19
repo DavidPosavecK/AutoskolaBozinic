@@ -11,47 +11,47 @@
     <script>tailwind.config={theme:{extend:{colors:{gold:'#fbbf24'}}}}</script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-amber-500/10 shadow-lg">
+  <body class="bg-black text-yellow-100 min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-500/20 shadow-lg">
       <nav class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto relative w-full">
         <a href="index.html"><img src="./slike/logo.png" alt="Autoškola Božinić" class="h-11 md:h-12 w-auto" /></a>
-        <ul id="navLinks" class="absolute md:relative top-full left-0 right-0 md:top-auto md:left-auto md:right-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 text-sm font-medium max-md:py-4">
-          <li><a href="index.html" class="hover:text-amber-400 transition">Naslovna</a></li>
-          <li><a href="kakodo.html" class="hover:text-amber-400 transition">Kako do vozačke</a></li>
-          <li><a href="kategorije.html" class="hover:text-amber-400 transition">Kategorije</a></li>
-          <li><a href="obavijesti.html" class="hover:text-amber-400 transition">Obavijesti</a></li>
-          <li><a href="onama.html" class="text-amber-400">O nama</a></li>
-          <li><a href="kontakt.html" class="hover:text-amber-400 transition">Kontakt</a></li>
+        <ul id="navLinks" class="absolute md:relative top-full left-0 right-0 md:top-auto md:left-auto md:right-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8 text-sm font-medium md:flex max-md:py-4 bg-black md:bg-transparent">
+          <li><a href="index.html" class="hover:text-yellow-400 transition">Naslovna</a></li>
+          <li><a href="kakodo.html" class="hover:text-yellow-400 transition">Kako do vozačke</a></li>
+          <li><a href="kategorije.html" class="hover:text-yellow-400 transition">Kategorije</a></li>
+          <li><a href="obavijesti.html" class="hover:text-yellow-400 transition">Obavijesti</a></li>
+          <li><a href="onama.html" class="text-yellow-400">O nama</a></li>
+          <li><a href="kontakt.html" class="hover:text-yellow-400 transition">Kontakt</a></li>
         </ul>
         <button id="hamburger" class="md:hidden hamburger flex flex-col justify-center gap-1.5 p-2" aria-label="Meni"><span></span><span></span><span></span></button>
       </nav>
     </header>
 
     <main class="flex-1 pt-[72px]">
-      <section class="bg-slate-900 py-12 px-4">
-        <h1 class="text-4xl font-bold text-amber-400 text-center">O nama</h1>
+      <section class="bg-zinc-950 py-12 px-4 border-b border-yellow-500/10">
+        <h1 class="text-4xl font-bold text-yellow-400 text-center">O nama</h1>
       </section>
 
       <section class="py-12 px-4 max-w-3xl mx-auto">
-        <div class="prose prose-invert prose-amber max-w-none space-y-6 text-slate-400 leading-relaxed">
-          <p>Autoškola <strong class="text-amber-400">L-PROM-BOŽINIĆ</strong> osposobljavanjem kandidata za vozača bavi se od 1997. godine. Osnivač i voditelj je gospodin Zlatko Božinić koji zapošljava još 5 stručnih instruktora vožnje te jednu administrativnu radnicu.</p>
-          <p>Primarna zadaća je osposobljavanje za <strong class="text-amber-400">A1, A2, A</strong> i <strong class="text-amber-400">B</strong> kategoriju. Glavno sjedište nalazi se u gradu Ivancu na adresi <strong class="text-slate-200">Trg hrvatskih Ivanovaca 10/II</strong> (roza zgrada u centru grada iznad poljoprivrednog poduzeća).</p>
+        <div class="prose prose-invert max-w-none space-y-6 text-zinc-400 leading-relaxed">
+          <p>Autoškola <strong class="text-yellow-400">L-PROM-BOŽINIĆ</strong> osposobljavanjem kandidata za vozača bavi se od 1997. godine. Osnivač i voditelj je gospodin Zlatko Božinić koji zapošljava još 5 stručnih instruktora vožnje te jednu administrativnu radnicu.</p>
+          <p>Primarna zadaća je osposobljavanje za <strong class="text-yellow-400">A1, A2, A</strong> i <strong class="text-yellow-400">B</strong> kategoriju. Glavno sjedište nalazi se u gradu Ivancu na adresi <strong class="text-zinc-200">Trg hrvatskih Ivanovaca 10/II</strong> (roza zgrada u centru grada iznad poljoprivrednog poduzeća).</p>
           <p>U svakodnevnom radu koristimo suvremenija tehnička pomagala, a nastavu iz prometnih i sigurnosnih pravila vršimo po visokim edukacijskim standardima uz zanimljive i interaktivne prezentacije.</p>
           <p>Kroz obuku vožnje vodit će Vas instruktori sa dugogodišnjim iskustvom. Izbor instruktora i mogućnost obuke usklađuje se prema raspoloživom vremenu kandidata.</p>
           <p>U našoj autoškoli dočekat će Vas ljubazno osoblje i ugodna atmosfera. Cilj našeg rada je ne samo da Vas naučimo kako pravilno upravljati vozilom, već i da postanete siguran vozač — za sebe i svoju okolinu.</p>
         </div>
       </section>
 
-      <section class="py-16 px-4 bg-slate-900/50">
+      <section class="py-16 px-4 bg-zinc-950">
         <div class="max-w-5xl mx-auto">
-          <h2 class="text-2xl font-bold text-amber-400 text-center mb-10">Što kažu naši polaznici</h2>
+          <h2 class="text-2xl font-bold text-yellow-400 text-center mb-10">Što kažu naši polaznici</h2>
           <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
             <div class="text-center">
-              <span class="text-4xl font-bold text-amber-400 rating-number">4.8</span>
-              <div class="flex justify-center gap-0.5 my-1 text-amber-400 text-xl">★★★★★</div>
-              <span class="text-slate-500 text-sm">na temelju Google recenzija</span>
+              <span class="text-4xl font-bold text-yellow-400 rating-number">4.8</span>
+              <div class="flex justify-center gap-0.5 my-1 text-yellow-400 text-xl">★★★★★</div>
+              <span class="text-zinc-500 text-sm">na temelju Google recenzija</span>
             </div>
-            <a href="https://www.google.com/search?q=Autoskola+bozinic" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold transition">
+            <a href="https://www.google.com/search?q=Autoskola+bozinic" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-black font-bold transition">
               Pogledaj sve recenzije na Googleu →
             </a>
           </div>
@@ -62,9 +62,9 @@
       </section>
     </main>
 
-    <footer class="bg-slate-900 border-t border-slate-800 py-8 px-4 mt-auto">
+    <footer class="bg-black border-t border-yellow-500/20 py-8 px-4 mt-auto">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-slate-400 text-sm">&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
+        <p class="text-zinc-400 text-sm">&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
         <div class="flex gap-4">
           <a href="https://www.facebook.com/p/Autoškola-Božinić-100064070889004/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="./slike/facebook-icon.png" alt="Facebook" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
           <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="./slike/Instagram_icon.png.webp" alt="Instagram" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>

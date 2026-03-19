@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       modal.style.display = 'flex'; modal.classList.add('flex'); modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      modal.scrollTop = 0;
 
       // reset “postojeća kategorija” UI kada se otvori
       updateExistingCategoryVisibility();
