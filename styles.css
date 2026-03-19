@@ -59,8 +59,7 @@ a:hover {
 
 /* Footer/social icons */
 footer img {
-  filter: brightness(0) saturate(100%) invert(84%) sepia(65%) saturate(680%) hue-rotate(359deg) brightness(101%) contrast(96%);
-  transition: transform 0.25s ease, filter 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 footer img:hover {
