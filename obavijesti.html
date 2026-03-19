@@ -3,49 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Obavijesti i novosti Autoškole Božinić. Najnovije informacije o promjenama i događajima." />
+    <meta
+      name="description"
+      content="Obavijesti i novosti Autoškole Božinić. Najnovije informacije o promjenama i događajima."
+    />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.autoskolabozinic.hr/obavijesti.html" />
+    <link
+      rel="canonical"
+      href="https://www.autoskolabozinic.hr/obavijesti.html"
+    />
     <title>Obavijesti - Autoškola Božinić</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{gold:'#fbbf24'}}}}</script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { gold: "#fbbf24" } } } };
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="bg-black text-yellow-100 min-h-screen flex flex-col">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-500/20 shadow-lg">
-      <nav class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto relative w-full">
-        <a href="index.html"><img src="./slike/logo.png" alt="Autoškola Božinić" class="h-11 md:h-12 w-auto" /></a>
-        <ul id="navLinks" class="absolute md:relative top-full left-0 right-0 md:top-auto md:left-auto md:right-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8 text-sm font-medium md:flex max-md:py-4 bg-black md:bg-transparent">
-          <li><a href="index.html" class="hover:text-yellow-400 transition">Naslovna</a></li>
-          <li><a href="kakodo.html" class="hover:text-yellow-400 transition">Kako do vozačke</a></li>
-          <li><a href="kategorije.html" class="hover:text-yellow-400 transition">Kategorije</a></li>
-          <li><a href="obavijesti.html" class="text-yellow-400">Obavijesti</a></li>
-          <li><a href="onama.html" class="hover:text-yellow-400 transition">O nama</a></li>
-          <li><a href="kontakt.html" class="hover:text-yellow-400 transition">Kontakt</a></li>
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-500/20 shadow-lg"
+    >
+      <nav
+        class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto relative w-full"
+      >
+        <a href="index.html"
+          ><img
+            src="./slike/logo.png"
+            alt="Autoškola Božinić"
+            class="h-11 md:h-12 w-auto"
+        /></a>
+        <ul
+          id="navLinks"
+          class="absolute md:relative top-full left-0 right-0 md:top-auto md:left-auto md:right-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8 text-sm font-medium md:flex max-md:py-4 bg-black md:bg-transparent"
+        >
+          <li>
+            <a href="index.html" class="hover:text-yellow-400 transition"
+              >Naslovna</a
+            >
+          </li>
+          <li>
+            <a href="kakodo.html" class="hover:text-yellow-400 transition"
+              >Kako do vozačke</a
+            >
+          </li>
+          <li>
+            <a href="kategorije.html" class="hover:text-yellow-400 transition"
+              >Kategorije</a
+            >
+          </li>
+          <li>
+            <a href="obavijesti.html" class="text-yellow-400">Obavijesti</a>
+          </li>
+          <li>
+            <a href="onama.html" class="hover:text-yellow-400 transition"
+              >O nama</a
+            >
+          </li>
+          <li>
+            <a href="kontakt.html" class="hover:text-yellow-400 transition"
+              >Kontakt</a
+            >
+          </li>
         </ul>
-        <button id="hamburger" class="md:hidden hamburger flex flex-col justify-center gap-1.5 p-2" aria-label="Meni"><span></span><span></span><span></span></button>
+        <button
+          id="hamburger"
+          class="md:hidden hamburger flex flex-col justify-center gap-1.5 p-2"
+          aria-label="Meni"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </header>
 
     <main class="flex-1 pt-[72px]">
       <section class="bg-zinc-950 py-12 px-4 border-b border-yellow-500/10">
-        <h1 class="text-4xl font-bold text-yellow-400 text-center">Obavijesti</h1>
-        <p class="text-zinc-400 text-center mt-2 max-w-2xl mx-auto">Saznajte datume novih grupa, općenite obavijesti vezane uz autoškolu i brojne druge aktivnosti.</p>
+        <h1 class="text-4xl font-bold text-yellow-400 text-center">
+          Obavijesti
+        </h1>
+        <p class="text-zinc-400 text-center mt-2 max-w-2xl mx-auto">
+          Ovdje možeš saznati sve važne novosti iz Autoškole Božinić! Od datuma
+          novih grupa i obavijesti vezanih uz upise, do događanja i aktivnosti u
+          kojima sudjelujemo. Sve na jednom mjestu, kako ti ništa ne bi
+          promaknulo!
+        </p>
       </section>
 
       <section class="py-12 px-4 max-w-4xl mx-auto">
-        <div id="loading-message" class="text-center text-zinc-400 py-8">Učitavanje obavijesti...</div>
+        <div id="loading-message" class="text-center text-zinc-400 py-8">
+          Učitavanje obavijesti...
+        </div>
         <div id="news-list" class="space-y-6"></div>
-        <div id="error-message" class="hidden text-center text-yellow-500 py-8"><p>Nije moguće učitati obavijesti. Molimo pokušajte kasnije.</p></div>
+        <div id="error-message" class="hidden text-center text-yellow-500 py-8">
+          <p>Nije moguće učitati obavijesti. Molimo pokušajte kasnije.</p>
+        </div>
       </section>
     </main>
 
     <footer class="bg-black border-t border-yellow-500/20 py-8 px-4 mt-auto">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-zinc-400 text-sm">&copy; 2025 Autoškola Božinić. Sva prava pridržana.</p>
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <p class="text-zinc-400 text-sm">
+          &copy; 2025 Autoškola Božinić. Sva prava pridržana.
+        </p>
         <div class="flex gap-4">
-          <a href="https://www.facebook.com/p/Autoškola-Božinić-100064070889004/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="./slike/facebook-icon.png" alt="Facebook" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="./slike/Instagram_icon.png.webp" alt="Instagram" class="h-8 w-8 opacity-80 hover:opacity-100" /></a>
+          <a
+            href="https://www.facebook.com/p/Autoškola-Božinić-100064070889004/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><img
+              src="./slike/facebook-icon.png"
+              alt="Facebook"
+              class="h-8 w-8 opacity-80 hover:opacity-100"
+          /></a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><img
+              src="./slike/Instagram_icon.png.webp"
+              alt="Instagram"
+              class="h-8 w-8 opacity-80 hover:opacity-100"
+          /></a>
         </div>
       </div>
     </footer>
