@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const existingCategorySelect = document.getElementById('postojeca_kategorija');
   const existingCategoryOtherWrap = document.getElementById('existingCategoryOtherWrap');
   const existingCategoryOtherInput = document.getElementById('postojeca_kategorija_ostalo');
+  const brojVozackeGroup = document.getElementById('brojVozackeGroup');
 
   function showError(msg, el) {
     alert(msg);
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // reset “postojeća kategorija” UI kada se otvori
       updateExistingCategoryVisibility();
       updateExistingCategoryOtherVisibility();
+      updateBrojVozackeVisibility();
     });
   });
 
@@ -107,6 +109,27 @@ document.addEventListener('DOMContentLoaded', function () {
     existingCategorySelect.addEventListener('change', updateExistingCategoryOtherVisibility);
   }
 
+  const brojVozackeInput = form ? form.querySelector('[name="broj_vozacke"]') : null;
+
+  function updateBrojVozackeVisibility() {
+    if (!brojVozackeGroup || !brojVozackeInput) return;
+    const checked = document.querySelector('input[name="posjeduje_vozacku"]:checked');
+    const isDa = checked && checked.value === 'da';
+
+    if (isDa) {
+      brojVozackeGroup.style.display = 'block';
+      brojVozackeInput.required = true;
+    } else {
+      brojVozackeGroup.style.display = 'none';
+      brojVozackeInput.required = false;
+      brojVozackeInput.value = '';
+    }
+  }
+
+  document.querySelectorAll('input[name="posjeduje_vozacku"]').forEach((rb) => {
+    rb.addEventListener('change', updateBrojVozackeVisibility);
+  });
+
   // Submit
   if (form) {
     form.addEventListener('submit', async function (e) {
@@ -142,15 +165,24 @@ document.addEventListener('DOMContentLoaded', function () {
         return showError('OIB mora sadržavati točno 11 znamenki i ne smije sadržavati slova ili razmake.', oibEl);
       }
 
-      // BROJ VOZAČKE (HR) obavezno: 7 ili 8 znamenki
+      const posjedujeVozacku = (formData.get('posjeduje_vozacku') || '').trim();
+      const posjedujeEl = form.querySelector('input[name="posjeduje_vozacku"]');
+
+      if (!posjedujeVozacku) {
+        return showError('Molimo odgovorite posjedujete li vozačku.', posjedujeEl);
+      }
+
+      // BROJ VOZAČKE (HR) samo ako posjeduje vozačku: 7 ili 8 znamenki
       const brojVozackeRaw = (formData.get('broj_vozacke') || '').trim();
       const brojVozackeEl = form.querySelector('[name="broj_vozacke"]');
 
-      if (!brojVozackeRaw) {
-        return showError('Molimo upišite broj vozačke dozvole.', brojVozackeEl);
-      }
-      if (!/^\d{7,8}$/.test(brojVozackeRaw)) {
-        return showError('Broj vozačke dozvole mora imati 7 ili 8 znamenki (bez razmaka i slova).', brojVozackeEl);
+      if (posjedujeVozacku === 'da') {
+        if (!brojVozackeRaw) {
+          return showError('Molimo upišite broj vozačke dozvole.', brojVozackeEl);
+        }
+        if (!/^\d{7,8}$/.test(brojVozackeRaw)) {
+          return showError('Broj vozačke dozvole mora imati 7 ili 8 znamenki (bez razmaka i slova).', brojVozackeEl);
+        }
       }
 
       // Ako je A ili A2 -> postojeća kategorija obavezna
@@ -188,8 +220,9 @@ E-MAIL ADRESA: ${emailRaw}
 KATEGORIJA: ${selectedCategory}
 POSTOJEĆA KATEGORIJA: ${postojecaZaEmail}
 
+POSJEDUJE VOZAČKU: ${posjedujeVozacku === 'da' ? 'Da' : 'Ne'}
 OIB: ${oibRaw}
-BROJ VOZAČKE DOZVOLE: ${brojVozackeRaw}
+BROJ VOZAČKE DOZVOLE: ${posjedujeVozacku === 'da' ? brojVozackeRaw : 'Ne posjeduje / nije uneseno'}
 BROJ LIJEČNIČKOG UVJERENJA: ${formData.get('broj_uvjerenja')}
 MJESTO I VRIJEME IZDAVANJA: ${formData.get('mjesto_vrijeme_izdavanja')}
 
@@ -238,6 +271,7 @@ Poslano: ${new Date().toLocaleString('hr-HR')}
           // reset UI nakon reseta
           updateExistingCategoryVisibility();
           updateExistingCategoryOtherVisibility();
+          updateBrojVozackeVisibility();
         } else {
           throw new Error(data.message || 'Greška pri slanju');
         }
