@@ -73,13 +73,13 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
   #navLinks {
-    background: #0f172a;
-    border-top: 1px solid rgba(251, 191, 36, 0.2);
+    background: #111111;
+    border-top: 1px solid rgba(250, 204, 21, 0.2);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   }
   #navLinks.open {
     max-height: 400px;
