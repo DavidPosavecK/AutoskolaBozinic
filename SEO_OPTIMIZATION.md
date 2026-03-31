@@ -15,12 +15,10 @@
 - ✅ Added og:image, og:title, og:description for all pages
 
 ### 3. Structured Data (JSON-LD)
-- ✅ **Homepage**: Added DrivingSchool schema with:
-  - Business name, address, coordinates
-  - Phone, email, opening hours
-  - Founding date, social media links
-- ✅ **Contact Page**: Added ContactPage schema
-- ✅ **How-to Page**: Added HowTo schema with step-by-step process
+- ✅ **Homepage**: DrivingSchool schema with name, address, phone, email, opening hours, founding date, and `sameAs` (Facebook, Instagram)
+- ✅ **Contact Page**: ContactPage schema + full Open Graph / Twitter tags
+- ✅ **How-to Page**: HowTo schema (8 steps) + full Open Graph / Twitter tags
+- ✅ **Other inner pages**: Open Graph and Twitter Card tags (kategorije, onama, obavijesti)
 
 ### 4. Technical SEO
 - ✅ Created `robots.txt` file
@@ -72,9 +70,9 @@
 - L-PROM-BOŽINIĆ
 
 ### Social Media Optimization
-- Open Graph tags for better Facebook/LinkedIn sharing
-- Twitter Card tags for Twitter sharing
-- Proper image URLs for social previews
+- Open Graph tags on all main pages (`og:title`, `og:description`, `og:image`, `og:url`, `og:locale`)
+- Twitter Card tags (`summary_large_image` + title, description, image) on all main pages
+- Social preview image: `https://www.autoskolabozinic.hr/slike/logo.png`
 
 ## 📝 Next Steps (Optional)
 

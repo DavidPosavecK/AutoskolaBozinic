@@ -35,6 +35,18 @@
     />
     <meta property="og:locale" content="hr_HR" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Autoškola Božinić - Profesionalne poduke vožnje u Ivanecu"
+    />
+    <meta
+      name="twitter:description"
+      content="Profesionalne poduke vožnje za kategorije A, A2, A1 i B. Osposobljavanje od 1997. godine."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.autoskolabozinic.hr/slike/logo.png"
+    />
     <title>Autoškola Božinić - Profesionalne poduke vožnje | Ivanec</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,21 +67,40 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "DrivingSchool",
+        "@type": ["LocalBusiness", "DrivingSchool"],
         "name": "Autoškola Božinić",
         "alternateName": "L-PROM-BOŽINIĆ",
         "url": "https://www.autoskolabozinic.hr",
         "logo": "https://www.autoskolabozinic.hr/slike/logo.png",
+        "image": ["https://www.autoskolabozinic.hr/slike/logo.png"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Trg hrvatskih Ivanovaca 10/2",
           "addressLocality": "Ivanec",
+          "postalCode": "42240",
+          "addressRegion": "Varaždinska županija",
           "addressCountry": "HR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 46.2240776,
+          "longitude": 16.1235605
         },
         "telephone": "+38542783750",
         "email": "Info.autoskolabozinic@gmail.com",
-        "openingHours": "Mo-Fr 08:00-15:30",
-        "foundingDate": "1997"
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "15:30"
+          }
+        ],
+        "foundingDate": "1997",
+        "sameAs": [
+          "https://www.facebook.com/p/Auto%C5%A1kola-Bo%C5%BEini%C4%87-100064070889004/",
+          "https://www.instagram.com/autoskola_bozinic"
+        ]
       }
     </script>
   </head>
