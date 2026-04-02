@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background: #000000;
+  background: #18181b;
   color: #fef9c3;
 }
 
@@ -27,12 +27,12 @@ body {
 /* General cards/news items */
 .news-card,
 #news-list > * {
-  background: #111111;
+  background: #27272a;
   border: 1px solid rgba(250, 204, 21, 0.2);
   border-radius: 12px;
   padding: 1rem;
   color: #fefce8;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(24, 24, 27, 0.45);
 }
 
 /* Links */
@@ -73,13 +73,13 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
   #navLinks {
-    background: #111111;
+    background: #27272a;
     border-top: 1px solid rgba(250, 204, 21, 0.2);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 18px rgba(24, 24, 27, 0.45);
   }
   #navLinks.open {
     max-height: 400px;

@@ -235,7 +235,7 @@ function displayNews(newsItems) {
   if (!newsItems || newsItems.length === 0) {
     if (errorMessage) { errorMessage.classList.remove('hidden'); errorMessage.style.display = ''; }
     if (newsList) {
-      newsList.innerHTML = '<p class="text-center text-slate-400 py-8">Trenutno nema obavijesti.</p>';
+      newsList.innerHTML = '<p class="text-center text-zinc-300 py-8">Trenutno nema obavijesti.</p>';
     }
     return;
   }
@@ -253,13 +253,13 @@ function displayNews(newsItems) {
 
   if (newsList) {
     newsList.innerHTML = newsItems.map(item => `
-      <article class="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-amber-500/30 transition">
+      <article class="p-6 rounded-xl bg-zinc-800/60 border border-zinc-600/50 hover:border-amber-500/30 transition">
         <div class="flex flex-wrap items-center gap-3 mb-3">
           <span class="text-amber-400 text-sm font-medium">${formatDate(item.date)}</span>
           ${item.category ? `<span class="px-2 py-0.5 text-xs rounded-full bg-amber-500/20 text-amber-400">${escapeHtml(item.category)}</span>` : ''}
         </div>
-        <h2 class="text-xl font-bold text-slate-100 mb-2">${escapeHtml(item.title)}</h2>
-        <div class="text-slate-400 leading-relaxed">${formatContent(item.content)}</div>
+        <h2 class="text-xl font-bold text-zinc-100 mb-2">${escapeHtml(item.title)}</h2>
+        <div class="text-zinc-300 leading-relaxed">${formatContent(item.content)}</div>
       </article>
     `).join('');
   }
