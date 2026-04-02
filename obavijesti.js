@@ -41,6 +41,11 @@ function formatDate(date) {
   return `${day}.${month}.${year}.`;
 }
 
+function formatDateISO(date) {
+  const d = new Date(date);
+  return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
+}
+
 // Parse Google Sheets JSON response
 function parseSheetData(data) {
   const rows = data.table.rows;
@@ -252,16 +257,22 @@ function displayNews(newsItems) {
   }
 
   if (newsList) {
-    newsList.innerHTML = newsItems.map(item => `
-      <article class="p-6 rounded-xl bg-zinc-800/60 border border-zinc-600/50 hover:border-amber-500/30 transition">
-        <div class="flex flex-wrap items-center gap-3 mb-3">
-          <span class="text-amber-400 text-sm font-medium">${formatDate(item.date)}</span>
-          ${item.category ? `<span class="px-2 py-0.5 text-xs rounded-full bg-amber-500/20 text-amber-400">${escapeHtml(item.category)}</span>` : ''}
-        </div>
-        <h2 class="text-xl font-bold text-zinc-100 mb-2">${escapeHtml(item.title)}</h2>
-        <div class="text-zinc-300 leading-relaxed">${formatContent(item.content)}</div>
-      </article>
-    `).join('');
+    newsList.innerHTML = newsItems.map(item => {
+      const iso = formatDateISO(item.date);
+      const timeAttr = iso ? ` datetime="${iso}"` : '';
+      const badge = item.category
+        ? `<span class="news-item__badge">${escapeHtml(item.category)}</span>`
+        : '';
+      return `
+      <article class="news-item">
+        <header class="news-item__head">
+          <time class="news-item__date"${timeAttr}>${formatDate(item.date)}</time>
+          ${badge}
+        </header>
+        <h2 class="news-item__title">${escapeHtml(item.title)}</h2>
+        <div class="news-item__content">${formatContent(item.content)}</div>
+      </article>`;
+    }).join('');
   }
 }
 
