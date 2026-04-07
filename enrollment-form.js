@@ -245,7 +245,7 @@ Poslano: ${new Date().toLocaleString('hr-HR')}
         web3formData.append('access_key', '76b7e2cd-8875-4a33-9dfa-eb33bf7f959b');
         web3formData.append('subject', `Nova prijava - ${formData.get('ime_prezime')} - ${selectedCategory}`);
         web3formData.append('from_name', formData.get('ime_prezime'));
-        web3formData.append('replyto', emailRaw || 'd.posaveckovac@gmail.com');
+        web3formData.append('replyto', emailRaw || 'Info.autoskolabozinic@gmail.com');
         web3formData.append('message', emailBody);
 
         // Add all form fields
