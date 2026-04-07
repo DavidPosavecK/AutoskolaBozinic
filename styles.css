@@ -6,7 +6,7 @@ html {
 
 body {
   background: #18181b;
-  color: #fef9c3;
+  color: #fff0c2;
 }
 
 /* Full-width bands: soften hard edges between zinc-900 / zinc-800 (site-wide) */
@@ -42,7 +42,7 @@ body {
   display: block;
   width: 30px;
   height: 2.5px;
-  background: #facc15;
+  background: #ffba00;
   border-radius: 9999px;
   transition: all 0.3s ease;
 }
@@ -60,7 +60,7 @@ body {
     rgba(24, 24, 27, 0.96) 45%,
     rgba(30, 30, 33, 0.98) 100%
   );
-  border: 1px solid rgba(250, 204, 21, 0.14);
+  border: 1px solid rgba(255, 186, 0, 0.14);
   box-shadow:
     0 4px 22px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
@@ -74,16 +74,16 @@ body {
   top: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(180deg, #facc15 0%, #eab308 50%, #a16207 100%);
+  background: linear-gradient(180deg, #ffba00 0%, #e0a600 50%, #946e00 100%);
   border-radius: 1rem 0 0 1rem;
 }
 
 .news-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(250, 204, 21, 0.28);
+  border-color: rgba(255, 186, 0, 0.28);
   box-shadow:
     0 16px 44px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(250, 204, 21, 0.1),
+    0 0 0 1px rgba(255, 186, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -101,7 +101,7 @@ body {
   display: inline;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #eab308;
+  color: #e0a600;
 }
 
 .news-item__badge {
@@ -136,13 +136,13 @@ body {
 }
 
 .news-item__content a {
-  color: #facc15;
+  color: #ffba00;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .news-item__content a:hover {
-  color: #fde047;
+  color: #ffcd40;
 }
 
 /* Links */
@@ -156,7 +156,7 @@ a:hover {
 
 /* Buttons */
 .btn-yellow {
-  background: #facc15;
+  background: #ffba00;
   color: #000;
   font-weight: 700;
   border-radius: 10px;
@@ -164,7 +164,7 @@ a:hover {
 }
 
 .btn-yellow:hover {
-  background: #fde047;
+  background: #ffcd40;
 }
 
 /* Footer/social icons */
@@ -178,13 +178,13 @@ footer img:hover {
 
 /* Optional yellow glow for headings */
 h1, h2, h3 {
-  text-shadow: 0 0 10px rgba(250, 204, 21, 0.08);
+  text-shadow: 0 0 10px rgba(255, 186, 0, 0.08);
 }
 
 @media (max-width: 768px) {
   #navLinks {
     background: #27272a;
-    border-top: 1px solid rgba(250, 204, 21, 0.2);
+    border-top: 1px solid rgba(255, 186, 0, 0.2);
     max-height: 0;
     overflow: hidden;
     opacity: 0;

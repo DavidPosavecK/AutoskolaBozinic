@@ -44,9 +44,20 @@
       content="https://www.autoskolabozinic.hr/slike/logo.png"
     />
     <title>Obavijesti - Autoškola Božinić</title>
+    <script src="tailwind-brand.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { theme: { extend: { colors: { gold: "#fbbf24" } } } };
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              yellow: window.TAILWIND_BRAND.yellow,
+              gold: "#FFBA00",
+              "gold-dark": "#946e00",
+            },
+          },
+        },
+      };
     </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -113,12 +124,16 @@
 
     <main class="flex-1 pt-[72px]">
       <section
-        class="section-band-panel py-12 px-4 border-b border-yellow-500/10"
+        class="section-band-panel py-8 md:py-12 px-4 border-b border-yellow-500/10"
       >
-        <h1 class="text-4xl font-bold text-yellow-400 text-center">
+        <h1 class="text-4xl font-bold text-yellow-400 text-center mb-2">
           Obavijesti
         </h1>
-        <p class="text-zinc-300 text-center mt-2 max-w-2xl mx-auto">
+        <div
+          class="mx-auto mb-4 max-w-xs h-px rounded-full bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent md:max-w-sm"
+          aria-hidden="true"
+        ></div>
+        <p class="text-zinc-300 text-center max-w-2xl mx-auto">
           Ovdje možeš saznati sve važne novosti iz autoškole Božinić! Od datuma
           novih grupa i obavijesti vezanih uz upise, do događanja i aktivnosti u
           kojima sudjelujemo. Sve na jednom mjestu, kako ti ništa ne bi
@@ -126,7 +141,8 @@
         </p>
       </section>
 
-      <section class="section-band-deep py-12 px-4 max-w-4xl mx-auto">
+      <section class="section-band-deep py-8 md:py-12 px-4">
+        <div class="max-w-4xl mx-auto">
         <div id="loading-message" class="text-center text-zinc-300 py-8">
           Učitavanje obavijesti...
         </div>
@@ -134,10 +150,11 @@
         <div id="error-message" class="hidden text-center text-yellow-500 py-8">
           <p>Nije moguće učitati obavijesti. Molimo pokušajte kasnije.</p>
         </div>
+        </div>
       </section>
     </main>
 
-    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-8 px-4 mt-auto">
+    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-6 md:py-8 px-4 mt-auto">
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >

@@ -35,9 +35,20 @@
       content="https://www.autoskolabozinic.hr/slike/logo.png"
     />
     <title>O nama - Autoškola Božinić</title>
+    <script src="tailwind-brand.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { theme: { extend: { colors: { gold: "#fbbf24" } } } };
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              yellow: window.TAILWIND_BRAND.yellow,
+              gold: "#FFBA00",
+              "gold-dark": "#946e00",
+            },
+          },
+        },
+      };
     </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -101,11 +112,18 @@
     </header>
 
     <main class="flex-1 pt-[72px]">
-      <section class="section-band-panel py-12 px-4 border-b border-yellow-500/10">
-        <h1 class="text-4xl font-bold text-yellow-400 text-center">O nama</h1>
+      <section class="section-band-panel py-8 md:py-12 px-4 border-b border-yellow-500/10">
+        <h1 class="text-4xl font-bold text-yellow-400 text-center mb-2">
+          O nama
+        </h1>
+        <div
+          class="mx-auto max-w-xs h-px rounded-full bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent md:max-w-sm"
+          aria-hidden="true"
+        ></div>
       </section>
 
-      <section class="section-band-deep py-12 px-4 max-w-3xl mx-auto">
+      <section class="section-band-deep py-8 md:py-12 px-4">
+        <div class="max-w-3xl mx-auto">
         <div
           class="prose prose-invert max-w-none space-y-6 text-zinc-300 leading-relaxed text-justify"
         >
@@ -160,9 +178,10 @@
             </strong>
           </p>
         </div>
+        </div>
       </section>
 
-      <section class="section-band-panel py-16 px-4">
+      <section class="section-band-panel py-10 md:py-16 px-4">
         <div class="max-w-5xl mx-auto">
           <h2 class="text-2xl font-bold text-yellow-400 text-center mb-10">
             Što kažu naši polaznici
@@ -199,7 +218,7 @@
       </section>
     </main>
 
-    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-8 px-4 mt-auto">
+    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-6 md:py-8 px-4 mt-auto">
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >

@@ -49,14 +49,16 @@
     />
     <title>Autoškola Božinić - Profesionalne poduke vožnje | Ivanec</title>
 
+    <script src="tailwind-brand.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              gold: "#fbbf24",
-              "gold-dark": "#d97706",
+              yellow: window.TAILWIND_BRAND.yellow,
+              gold: "#FFBA00",
+              "gold-dark": "#946e00",
             },
           },
         },
@@ -201,7 +203,7 @@
       </section>
 
       <!-- CTA: Kako do vozačke -->
-      <section class="section-band-deep py-16 px-4">
+      <section class="section-band-deep py-10 md:py-16 px-4">
         <div class="max-w-3xl mx-auto">
           <h2
             class="text-2xl md:text-3xl font-bold text-yellow-400 mb-8 text-center"
@@ -233,8 +235,22 @@
           </div>
         </div>
       </section>
+
+      <!-- Blagi prijelaz prije bloka obavijesti 
+      <div
+        class="bg-[#18181b] px-4 pt-2 pb-1 md:pt-3 md:pb-2"
+        aria-hidden="true"
+      >
+        <div
+          class="mx-auto max-w-xl md:max-w-2xl h-px rounded-full bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent shadow-[0_0_18px_rgba(233,185,82,0.18)]"
+        ></div>
+        <div
+          class="mx-auto mt-2 max-w-md h-px rounded-full bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent opacity-90"
+        ></div>
+      </div> -->
+
       <!-- Kategorije CTA 
-      <section class="py-16 px-4 bg-zinc-900">
+      <section class="py-10 md:py-16 px-4 bg-zinc-900">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">
             Istraži kategorije koje nudimo!
@@ -249,7 +265,7 @@
       </section>
 
       Cjenik CTA
-      <section class="section-band-panel py-16 px-4">
+      <section class="section-band-panel py-10 md:py-16 px-4">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">
             Jasne cijene, bez iznenađenja.
@@ -263,11 +279,15 @@
         </div>
       </section> -->
       <!--Obavijesti Preview -->
-      <section class="section-band-panel py-12 px-4">
+      <section class="section-band-panel pt-6 pb-8 md:pt-8 md:pb-12 px-4">
         <div class="max-w-4xl mx-auto">
           <h1 class="text-3xl font-bold text-yellow-400 mb-2 text-center">
             Obavijesti
           </h1>
+          <div
+            class="mx-auto mb-6 max-w-xs h-px rounded-full bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent md:max-w-sm"
+            aria-hidden="true"
+          ></div>
           <p class="text-zinc-300 text-center mb-10">
             Ovdje možeš saznati sve važne novosti iz Autoškole Božinić! Od
             datuma novih grupa i obavijesti vezanih uz upise, do događanja i
@@ -277,7 +297,9 @@
         </div>
       </section>
 
-      <section class="section-band-deep py-12 px-4 pb-20">
+      <section
+        class="section-band-deep border-t border-yellow-500/15 py-8 md:py-12 px-4 pb-12 md:pb-20"
+      >
         <div class="max-w-4xl mx-auto">
           <div id="loading-message" class="text-center text-zinc-300 py-8">
             Učitavanje obavijesti...
@@ -301,7 +323,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-8 px-4 mt-auto">
+    <footer
+      class="bg-zinc-900 border-t border-yellow-500/20 py-6 md:py-8 px-4 mt-auto"
+    >
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >

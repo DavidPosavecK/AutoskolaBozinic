@@ -75,13 +75,13 @@ function renderReviews() {
   
   // Render review cards
   reviewsList.innerHTML = googleReviews.map(review => `
-    <div class="p-6 rounded-xl bg-zinc-800/60 border border-zinc-600 hover:border-amber-500/30 transition">
+    <div class="p-6 rounded-xl bg-zinc-800/60 border border-zinc-600 hover:border-yellow-500/30 transition">
       <div class="flex justify-between items-start gap-4 mb-3">
         <div>
           <div class="font-bold text-zinc-100">${review.name}</div>
           <div class="text-zinc-400 text-sm">${review.date}</div>
         </div>
-        <div class="text-amber-400 text-lg">${generateStars(review.rating)}</div>
+        <div class="text-yellow-400 text-lg">${generateStars(review.rating)}</div>
       </div>
       <div class="text-zinc-300 text-sm leading-relaxed">${review.text}</div>
     </div>

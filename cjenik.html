@@ -35,9 +35,20 @@
       content="https://www.autoskolabozinic.hr/slike/logo.png"
     />
     <title>Cjenik - Autoškola Božinić | Ivanec</title>
+    <script src="tailwind-brand.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { theme: { extend: { colors: { gold: "#fbbf24" } } } };
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              yellow: window.TAILWIND_BRAND.yellow,
+              gold: "#FFBA00",
+              "gold-dark": "#946e00",
+            },
+          },
+        },
+      };
     </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -104,20 +115,25 @@
 
     <main class="flex-1 pt-[72px]">
       <section
-        class="section-band-panel py-12 px-4 border-b border-yellow-500/10"
+        class="section-band-panel py-8 md:py-12 px-4 border-b border-yellow-500/10"
       >
-        <h1 class="text-4xl font-bold text-yellow-400 text-center">Cjenik</h1>
+        <h1 class="text-4xl font-bold text-yellow-400 text-center mb-2">
+          Cjenik
+        </h1>
+        <div
+          class="mx-auto mb-4 max-w-xs h-px rounded-full bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent md:max-w-sm"
+          aria-hidden="true"
+        ></div>
         <p
-          class="text-zinc-300 text-center mt-3 max-w-2xl mx-auto text-sm md:text-base"
+          class="text-zinc-300 text-center max-w-2xl mx-auto text-sm md:text-base"
         >
           Informativni pregled cijena obuke. Za pojedinosti o upisu i plaćanju
           obrati nam se osobno ili putem kontakta.
         </p>
       </section>
 
-      <section
-        class="section-band-deep py-12 px-4 max-w-5xl mx-auto space-y-14"
-      >
+      <section class="section-band-deep py-8 md:py-12 px-4">
+        <div class="max-w-5xl mx-auto space-y-8 md:space-y-14">
         <!-- Kategorija B -->
         <div>
           <h2 class="text-2xl font-bold text-yellow-400 mb-4">Kategorija B</h2>
@@ -260,7 +276,7 @@
                 class="grid grid-cols-1 gap-3 bg-zinc-900/20 p-4 transition hover:bg-zinc-900/40 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 sm:px-5 sm:py-4"
               >
                 <span
-                  class="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-500/12 text-sm font-bold text-amber-300 ring-1 ring-amber-500/20 sm:w-12"
+                  class="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-500/12 text-sm font-bold text-yellow-300 ring-1 ring-yellow-500/20 sm:w-12"
                   >A2</span
                 >
                 <p class="text-sm leading-relaxed text-zinc-300">
@@ -275,7 +291,7 @@
                 class="grid grid-cols-1 gap-3 bg-zinc-900/20 p-4 transition hover:bg-zinc-900/40 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 sm:px-5 sm:py-4"
               >
                 <span
-                  class="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-500/12 text-sm font-bold text-amber-300 ring-1 ring-amber-500/20 sm:w-12"
+                  class="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-500/12 text-sm font-bold text-yellow-300 ring-1 ring-yellow-500/20 sm:w-12"
                   >A2</span
                 >
                 <p class="text-sm leading-relaxed text-zinc-300">
@@ -291,7 +307,7 @@
                 class="grid grid-cols-1 gap-3 bg-zinc-900/20 p-4 transition hover:bg-zinc-900/40 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 sm:px-5 sm:py-4"
               >
                 <span
-                  class="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-500/12 text-sm font-bold text-amber-300 ring-1 ring-amber-500/20 sm:w-12"
+                  class="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-500/12 text-sm font-bold text-yellow-300 ring-1 ring-yellow-500/20 sm:w-12"
                   >A2</span
                 >
                 <p class="text-sm leading-relaxed text-zinc-300">
@@ -375,10 +391,11 @@
             >kontaktirajte nas</a
           >.
         </p>
+        </div>
       </section>
     </main>
 
-    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-8 px-4 mt-auto">
+    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-6 md:py-8 px-4 mt-auto">
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >

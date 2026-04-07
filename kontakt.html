@@ -35,9 +35,20 @@
       content="https://www.autoskolabozinic.hr/slike/logo.png"
     />
     <title>Kontakt - Autoškola Božinić</title>
+    <script src="tailwind-brand.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { theme: { extend: { colors: { gold: "#fbbf24" } } } };
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              yellow: window.TAILWIND_BRAND.yellow,
+              gold: "#FFBA00",
+              "gold-dark": "#946e00",
+            },
+          },
+        },
+      };
     </script>
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
@@ -116,100 +127,110 @@
 
     <main class="flex-1 pt-[72px]">
       <section
-        class="section-band-panel py-12 px-4 border-b border-yellow-500/10"
+        class="section-band-panel py-8 md:py-12 px-4 border-b border-yellow-500/10"
       >
-        <h1 class="text-4xl font-bold text-yellow-400 text-center">Kontakt</h1>
+        <h1 class="text-4xl font-bold text-yellow-400 text-center mb-2">
+          Kontakt
+        </h1>
+        <div
+          class="mx-auto max-w-xs h-px rounded-full bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent md:max-w-sm"
+          aria-hidden="true"
+        ></div>
       </section>
 
-      <section class="section-band-deep py-12 px-4 max-w-5xl mx-auto">
-        <h2 class="text-2xl font-bold text-yellow-400 mb-4">
-          Kontaktirajte nas
-        </h2>
-        <p class="text-zinc-300 mb-8">
-          Želiš upisati autoškolu? Imaš pitanja? Kontaktiraj nas ili nas posjeti
-          u uredu.
-        </p>
-        <div
-          class="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-10 mb-10 lg:mb-12"
-        >
+      <section class="section-band-deep py-8 md:py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-bold text-yellow-400 mb-4">
+            Kontaktiraj nas
+          </h2>
+          <p class="text-zinc-300 mb-8">
+            Želiš upisati autoškolu? Imaš pitanja? Kontaktiraj nas ili nas
+            posjeti u uredu.
+          </p>
           <div
-            class="space-y-4 rounded-xl bg-zinc-800 border border-yellow-500/15 p-6 flex-1 min-w-0"
+            class="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-10 mb-10 lg:mb-12"
           >
-            <p class="flex items-center gap-3">
-              <span class="text-yellow-400 font-semibold min-w-[100px]"
-                >WhatsApp:</span
-              ><a
-                href="https://wa.me/385992334596"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-zinc-200 hover:text-yellow-400"
-                >099 233 4596</a
-              >
-            </p>
-            <p class="flex items-center gap-3">
-              <span class="text-yellow-400 font-semibold min-w-[100px]"
-                >Tel:</span
-              ><a
-                href="tel:+38542783750"
-                class="text-zinc-200 hover:text-yellow-400"
-                >042 783 750</a
-              >
-            </p>
-            <p class="flex items-center gap-3">
-              <span class="text-yellow-400 font-semibold min-w-[100px]"
-                >Email:</span
-              ><a
-                href="mailto:Info.autoskolabozinic@gmail.com"
-                class="text-zinc-200 hover:text-yellow-400"
-                >Info.autoskolabozinic@gmail.com</a
-              >
-            </p>
-            <p class="flex items-start gap-3">
-              <span class="text-yellow-400 font-semibold min-w-[100px]"
-                >Adresa:</span
-              ><span class="text-zinc-200"
-                >Trg hrvatskih Ivanovaca 10/2, Ivanec, Croatia</span
-              >
-            </p>
-            <p class="flex items-center gap-3">
-              <span class="text-yellow-400 font-semibold min-w-[100px]"
-                >Radno vrijeme:</span
-              ><span class="text-zinc-200">Pon-Pet 8:00 - 15:30</span>
-            </p>
+            <div
+              class="space-y-4 rounded-xl bg-zinc-800 border border-yellow-500/15 p-6 flex-1 min-w-0"
+            >
+              <p class="flex items-center gap-3">
+                <span class="text-yellow-400 font-semibold min-w-[100px]"
+                  >WhatsApp:</span
+                ><a
+                  href="https://wa.me/385992334596"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-zinc-200 hover:text-yellow-400"
+                  >099 233 4596</a
+                >
+              </p>
+              <p class="flex items-center gap-3">
+                <span class="text-yellow-400 font-semibold min-w-[100px]"
+                  >Tel:</span
+                ><a
+                  href="tel:+38542783750"
+                  class="text-zinc-200 hover:text-yellow-400"
+                  >042 783 750</a
+                >
+              </p>
+              <p class="flex items-center gap-3">
+                <span class="text-yellow-400 font-semibold min-w-[100px]"
+                  >Email:</span
+                ><a
+                  href="mailto:Info.autoskolabozinic@gmail.com"
+                  class="text-zinc-200 hover:text-yellow-400"
+                  >Info.autoskolabozinic@gmail.com</a
+                >
+              </p>
+              <p class="flex items-start gap-3">
+                <span class="text-yellow-400 font-semibold min-w-[100px]"
+                  >Adresa:</span
+                ><span class="text-zinc-200"
+                  >Trg hrvatskih Ivanovaca 10/2, Ivanec, Croatia</span
+                >
+              </p>
+              <p class="flex items-center gap-3">
+                <span class="text-yellow-400 font-semibold min-w-[100px]"
+                  >Radno vrijeme:</span
+                ><span class="text-zinc-200">Pon-Pet 8:00 - 15:30</span>
+              </p>
+            </div>
+            <div
+              class="flex-shrink-0 flex justify-center lg:justify-end lg:pt-2 mx-auto lg:mx-0"
+            >
+              <img
+                src="./slike/Bozo_Phone.png"
+                alt=""
+                width="200"
+                height="200"
+                class="w-36 h-auto lg:w-40 max-h-48 object-contain drop-shadow-lg"
+                aria-hidden="true"
+              />
+            </div>
           </div>
+          <h2 class="text-2xl font-bold text-yellow-400 text-center mb-8">
+            Gdje se nalazimo
+          </h2>
           <div
-            class="flex-shrink-0 flex justify-center lg:justify-end lg:pt-2 mx-auto lg:mx-0"
+            class="rounded-xl overflow-hidden border border-yellow-500/15 shadow-xl"
           >
-            <img
-              src="./slike/Bozo_Phone.png"
-              alt=""
-              width="200"
-              height="200"
-              class="w-36 h-auto lg:w-40 max-h-48 object-contain drop-shadow-lg"
-              aria-hidden="true"
-            />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d690.0787827546667!2d16.12356050709773!3d46.224077555522435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765f97d76fe7765%3A0xbe3969e31bd77a64!2sTrg%20hrvatskih%20Ivanovaca%2010-2%2C%2042240%2C%20Ivanec!5e0!3m2!1sen!2shr!4v1747678347082!5m2!1sen!2shr"
+              width="100%"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
-        </div>
-        <h2 class="text-2xl font-bold text-yellow-400 text-center mb-8">
-          Gdje se nalazimo
-        </h2>
-        <div
-          class="rounded-xl overflow-hidden border border-yellow-500/15 shadow-xl"
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d690.0787827546667!2d16.12356050709773!3d46.224077555522435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765f97d76fe7765%3A0xbe3969e31bd77a64!2sTrg%20hrvatskih%20Ivanovaca%2010-2%2C%2042240%2C%20Ivanec!5e0!3m2!1sen!2shr!4v1747678347082!5m2!1sen!2shr"
-            width="100%"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
         </div>
       </section>
     </main>
 
-    <footer class="bg-zinc-900 border-t border-yellow-500/20 py-8 px-4 mt-auto">
+    <footer
+      class="bg-zinc-900 border-t border-yellow-500/20 py-6 md:py-8 px-4 mt-auto"
+    >
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >
