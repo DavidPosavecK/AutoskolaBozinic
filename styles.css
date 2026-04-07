@@ -9,6 +9,29 @@ body {
   color: #fef9c3;
 }
 
+/* Full-width bands: soften hard edges between zinc-900 / zinc-800 (site-wide) */
+.section-band-panel {
+  background: linear-gradient(
+    to bottom,
+    #18181b 0%,
+    #1c1c20 5%,
+    #232326 12%,
+    #27272a 22%,
+    #27272a 100%
+  );
+}
+
+.section-band-deep {
+  background: linear-gradient(
+    to bottom,
+    #27272a 0%,
+    #202023 8%,
+    #1a1a1d 16%,
+    #18181b 24%,
+    #18181b 100%
+  );
+}
+
 /* Navbar links on mobile */
 #navLinks {
   transition: all 0.3s ease;
@@ -17,8 +40,8 @@ body {
 /* Hamburger */
 .hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 30px;
+  height: 2.5px;
   background: #facc15;
   border-radius: 9999px;
   transition: all 0.3s ease;
@@ -169,7 +192,7 @@ h1, h2, h3 {
     box-shadow: 0 6px 18px rgba(24, 24, 27, 0.45);
   }
   #navLinks.open {
-    max-height: 400px;
+    max-height: 640px;
     opacity: 1;
   }
 }
