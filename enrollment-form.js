@@ -1,6 +1,7 @@
-// Enrollment Form Modal Handler
+// Enrollment form handler (modal + standalone page)
 document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('enrollmentModal');
+  const isModalMode = !!modal;
   const enrollButtons = document.querySelectorAll('.enroll-btn');
   const closeBtn = document.querySelector('.modal-close');
   const form = document.getElementById('enrollmentForm');
@@ -17,9 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (el) el.focus();
   }
 
-  // Otvori modal
+  // Otvori modal (ako postoji na stranici)
   enrollButtons.forEach((button) => {
     button.addEventListener('click', function (e) {
+      if (!isModalMode) return;
       e.preventDefault();
       modal.style.display = 'flex'; modal.classList.add('flex'); modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -34,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Zatvori modal
   function closeModal() {
+    if (!isModalMode) return;
     modal.style.display = 'none'; modal.classList.add('hidden'); modal.classList.remove('flex');
     document.body.style.overflow = 'auto';
   }
@@ -42,11 +45,14 @@ document.addEventListener('DOMContentLoaded', function () {
     closeBtn.addEventListener('click', closeModal);
   }
 
-  window.addEventListener('click', function (e) {
-    if (e.target === modal) closeModal();
-  });
+  if (isModalMode) {
+    window.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+  }
 
   document.addEventListener('keydown', function (e) {
+    if (!isModalMode) return;
     if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
   });
 
@@ -266,7 +272,11 @@ Poslano: ${new Date().toLocaleString('hr-HR')}
         if (data.success) {
           alert('Uspješno ste poslali prijavu! Kontaktirat ćemo vas uskoro.');
           form.reset();
-          closeModal();
+          if (isModalMode) {
+            closeModal();
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
 
           // reset UI nakon reseta
           updateExistingCategoryVisibility();
