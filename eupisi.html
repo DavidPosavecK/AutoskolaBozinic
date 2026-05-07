@@ -109,8 +109,16 @@
       >
         <div class="max-w-4xl mx-auto text-center">
           <h1 class="text-4xl font-bold text-yellow-400">E upisi</h1>
+          <br />
+          <p>
+            <strong class="text-zinc-100">
+              Ne stigneš odmah do ureda? Nema problema.
+            </strong>
+          </p>
           <p class="mt-3 text-zinc-300">
-            Ispuni obrazac i pošalji prijavu za upis u Autoškolu Božinić.
+            Prvi korak prema vozačkoj možeš napraviti online. Ispuni obrazac,
+            pošalji nam potrebne podatke i javljamo ti se s daljnjim
+            informacijama vezanim uz upis, početak predavanja i dokumentaciju.
           </p>
         </div>
       </section>
@@ -124,6 +132,12 @@
           </h2>
 
           <form id="enrollmentForm" class="space-y-4">
+            <p
+              class="text-yellow-400/90 text-sm font-semibold uppercase tracking-wide border-b border-yellow-500/20 pb-2"
+            >
+              Kandidat
+            </p>
+
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
                 >Ime i prezime: <span class="text-red-400">*</span></label
@@ -138,12 +152,36 @@
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
-                >Ime i prezime roditelja / skrbnika:
+                >Datum rođenja (dan/mjesec/godina):
                 <span class="text-red-400">*</span></label
               >
               <input
                 type="text"
-                name="ime_roditelja"
+                name="datum_rodenja"
+                inputmode="numeric"
+                placeholder="DD/MM/GGGG npr. 08/05/2008"
+                required
+                autocomplete="bday"
+                class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
+              />
+              <p class="text-zinc-500 text-xs mt-1">
+                Format: dan / mjesec / godina (DD/MM/GGGG). Točke su dopuštene
+                umjesto kose crte (npr. 08.05.2008).
+                <span class="block mt-0.5"
+                  >Ako ste mlađi od 18 godina, prikazat će se podaci za
+                  roditelja/skrbnika.</span
+                >
+              </p>
+            </div>
+
+            <div>
+              <label class="block text-zinc-200 text-sm mb-1"
+                >Mjesto rođenja: <span class="text-red-400">*</span></label
+              >
+              <input
+                type="text"
+                name="mjesto_rodenja"
+                placeholder="npr. Zagreb"
                 required
                 class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
               />
@@ -151,21 +189,7 @@
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
-                >Datum i mjesto rođenja:
-                <span class="text-red-400">*</span></label
-              >
-              <input
-                type="text"
-                name="datum_mjesto_rodenja"
-                placeholder="npr. 01.01.2000., Zagreb"
-                required
-                class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
-              />
-            </div>
-
-            <div>
-              <label class="block text-zinc-200 text-sm mb-1"
-                >Adresa i poštanski broj:
+                >Adresa i poštanski broj (kandidata):
                 <span class="text-red-400">*</span></label
               >
               <input
@@ -215,11 +239,19 @@
                   A</label
                 >
                 <label class="flex items-center gap-2"
-                  ><input type="radio" name="kategorija" value="A1 KATEGORIJA" />
+                  ><input
+                    type="radio"
+                    name="kategorija"
+                    value="A1 KATEGORIJA"
+                  />
                   A1</label
                 >
                 <label class="flex items-center gap-2"
-                  ><input type="radio" name="kategorija" value="A2 KATEGORIJA" />
+                  ><input
+                    type="radio"
+                    name="kategorija"
+                    value="A2 KATEGORIJA"
+                  />
                   A2</label
                 >
                 <label class="flex items-center gap-2"
@@ -231,7 +263,8 @@
 
             <div id="existingCategoryGroup" style="display: none">
               <label class="block text-zinc-200 text-sm mb-1"
-                >Postojeća kategorija: <span class="text-red-400">*</span></label
+                >Postojeća kategorija:
+                <span class="text-red-400">*</span></label
               >
               <select
                 id="postojeca_kategorija"
@@ -301,7 +334,7 @@
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
-                >OIB: <span class="text-red-400">*</span></label
+                >OIB kandidata: <span class="text-red-400">*</span></label
               >
               <input
                 type="text"
@@ -312,6 +345,44 @@
                 class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
               />
             </div>
+
+            <div id="guardianSection" class="space-y-4" style="display: none">
+              <p
+                class="text-yellow-400/90 text-sm font-semibold uppercase tracking-wide border-b border-yellow-500/20 pb-2 pt-2"
+              >
+                Roditelj / skrbnik
+              </p>
+
+              <div>
+                <label class="block text-zinc-200 text-sm mb-1"
+                  >Ime i prezime roditelja / skrbnika:
+                  <span class="text-red-400">*</span></label
+                >
+                <input
+                  type="text"
+                  name="ime_roditelja"
+                  class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
+                />
+              </div>
+
+              <div>
+                <label class="block text-zinc-200 text-sm mb-1"
+                  >Adresa i poštanski broj skrbnika:
+                  <span class="text-red-400">*</span></label
+                >
+                <input
+                  type="text"
+                  name="adresa_skrbnika"
+                  class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
+                />
+              </div>
+            </div>
+
+            <p
+              class="text-yellow-400/90 text-sm font-semibold uppercase tracking-wide border-b border-yellow-500/20 pb-2 pt-2"
+            >
+              Liječničko uvjerenje
+            </p>
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
@@ -328,7 +399,7 @@
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
-                >Mjesto i vrijeme izdavanja:
+                >Mjesto i datum izdavanja:
                 <span class="text-red-400">*</span></label
               >
               <input
@@ -354,7 +425,12 @@
               class="p-4 bg-yellow-500/10 rounded-lg border border-yellow-500/20"
             >
               <label class="flex gap-2 cursor-pointer">
-                <input type="checkbox" name="suglasnost" required class="mt-1" />
+                <input
+                  type="checkbox"
+                  name="suglasnost"
+                  required
+                  class="mt-1"
+                />
                 <span class="text-zinc-300 text-sm">
                   Suglasan/a sam da se moji osobni podaci koriste u svrhu
                   obavljanja osnovne djelatnosti Autoškole Božinić d.o.o.

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const existingCategoryOtherWrap = document.getElementById('existingCategoryOtherWrap');
   const existingCategoryOtherInput = document.getElementById('postojeca_kategorija_ostalo');
   const brojVozackeGroup = document.getElementById('brojVozackeGroup');
+  const guardianSection = document.getElementById('guardianSection');
 
   function showError(msg, el) {
     alert(msg);
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
       updateExistingCategoryVisibility();
       updateExistingCategoryOtherVisibility();
       updateBrojVozackeVisibility();
+      updateGuardianVisibility();
     });
   });
 
@@ -116,6 +118,72 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const brojVozackeInput = form ? form.querySelector('[name="broj_vozacke"]') : null;
+  const datumRodenjaInput = form ? form.querySelector('[name="datum_rodenja"]') : null;
+  const imeRoditeljaInput = form ? form.querySelector('[name="ime_roditelja"]') : null;
+  const adresaSkrbnikaInput = form ? form.querySelector('[name="adresa_skrbnika"]') : null;
+
+  function parseDmyDate(s) {
+    const raw = String(s || '').trim();
+    if (!raw) return null;
+    const normalized = raw.replace(/\./g, '/').replace(/\s+/g, '');
+    const parts = normalized.split('/').map((p) => p.trim()).filter(Boolean);
+    if (parts.length !== 3) return null;
+    const d = parseInt(parts[0], 10);
+    const m = parseInt(parts[1], 10);
+    const y = parseInt(parts[2], 10);
+    if (!Number.isFinite(d) || !Number.isFinite(m) || !Number.isFinite(y)) return null;
+    if (y < 1900 || y > 2100 || m < 1 || m > 12 || d < 1 || d > 31) return null;
+    const dt = new Date(y, m - 1, d);
+    if (dt.getFullYear() !== y || dt.getMonth() !== m - 1 || dt.getDate() !== d) return null;
+    return dt;
+  }
+
+  /** Izlaz: DD/MM/GGGG */
+  function formatDmySlash(date) {
+    if (!date || isNaN(date.getTime())) return '';
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    return `${dd}/${mm}/${date.getFullYear()}`;
+  }
+
+  /** true ako kandidat još nema 18 godina (na današnji dan). */
+  function isKandidatMaloljetan(birthDate) {
+    if (!birthDate || isNaN(birthDate.getTime())) return false;
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age < 18;
+  }
+
+  function updateGuardianVisibility() {
+    if (!guardianSection || !datumRodenjaInput) return;
+    const birth = parseDmyDate(datumRodenjaInput.value);
+    const minor = birth ? isKandidatMaloljetan(birth) : false;
+
+    if (minor) {
+      guardianSection.style.display = '';
+      if (imeRoditeljaInput) imeRoditeljaInput.required = true;
+      if (adresaSkrbnikaInput) adresaSkrbnikaInput.required = true;
+    } else {
+      guardianSection.style.display = 'none';
+      if (imeRoditeljaInput) {
+        imeRoditeljaInput.required = false;
+        imeRoditeljaInput.value = '';
+      }
+      if (adresaSkrbnikaInput) {
+        adresaSkrbnikaInput.required = false;
+        adresaSkrbnikaInput.value = '';
+      }
+    }
+  }
+
+  if (datumRodenjaInput) {
+    datumRodenjaInput.addEventListener('change', updateGuardianVisibility);
+    datumRodenjaInput.addEventListener('input', updateGuardianVisibility);
+  }
 
   function updateBrojVozackeVisibility() {
     if (!brojVozackeGroup || !brojVozackeInput) return;
@@ -160,6 +228,26 @@ document.addEventListener('DOMContentLoaded', function () {
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRaw);
       if (!emailOk) {
         return showError('Molimo upišite valjanu e-mail adresu (npr. ime@domena.hr).', emailEl);
+      }
+
+      const datumRodenjaVal = (formData.get('datum_rodenja') || '').trim();
+      const birthDate = parseDmyDate(datumRodenjaVal);
+      if (!birthDate) {
+        return showError(
+          'Molimo upišite datum rođenja u obliku DD/MM/GGGG (dan/mjesec/godina), npr. 08/05/2008.',
+          datumRodenjaInput
+        );
+      }
+      const todayStart = new Date();
+      todayStart.setHours(0, 0, 0, 0);
+      if (birthDate > todayStart) {
+        return showError('Datum rođenja ne može biti u budućnosti.', datumRodenjaInput);
+      }
+
+      const mjestoRodenjaRaw = (formData.get('mjesto_rodenja') || '').trim();
+      const mjestoRodenjaEl = form.querySelector('[name="mjesto_rodenja"]');
+      if (!mjestoRodenjaRaw) {
+        return showError('Molimo upišite mjesto rođenja.', mjestoRodenjaEl);
       }
 
       // OIB validacija
@@ -211,15 +299,38 @@ document.addEventListener('DOMContentLoaded', function () {
         ? (postojecaKat === 'Ostalo' ? `Ostalo: ${postojecaKatOstalo}` : postojecaKat)
         : 'Nije potrebno / nije navedeno';
 
+      const kandidatMaloljetan = isKandidatMaloljetan(birthDate);
+      const adresaSkrbnikaRaw = (formData.get('adresa_skrbnika') || '').trim();
+      const adresaSkrbnikaEl = form.querySelector('[name="adresa_skrbnika"]');
+      const imeRoditeljaRaw = (formData.get('ime_roditelja') || '').trim();
+      const imeRoditeljaEl = form.querySelector('[name="ime_roditelja"]');
+
+      if (kandidatMaloljetan) {
+        if (!imeRoditeljaRaw) {
+          return showError('Molimo upišite ime i prezime roditelja / skrbnika.', imeRoditeljaEl);
+        }
+        if (!adresaSkrbnikaRaw) {
+          return showError('Molimo upišite adresu i poštanski broj skrbnika.', adresaSkrbnikaEl);
+        }
+      }
+
+      const datumRodenjaFormatted = formatDmySlash(birthDate);
+      const guardianEmailBlock = kandidatMaloljetan
+        ? `--- RODITELJ / SKRBNIK ---
+IME I PREZIME RODITELJA/SKRBNIKA: ${imeRoditeljaRaw}
+ADRESA I POŠTANSKI BROJ SKRBNIKA: ${adresaSkrbnikaRaw}`
+        : '--- RODITELJ / SKRBNIK ---\nKandidat punoljetan (18+); podaci skrbnika nisu potrebni.';
+
       // Build email body
       const emailBody = `
 NOVA PRIJAVA ZA AUTOŠKOLU BOŽINIĆ
 =====================================
 
+--- KANDIDAT ---
 IME I PREZIME: ${formData.get('ime_prezime')}
-IME I PREZIME RODITELJA/SKRBNIKA: ${formData.get('ime_roditelja')}
-DATUM I MJESTO ROĐENJA: ${formData.get('datum_mjesto_rodenja')}
-ADRESA I POŠTANSKI BROJ: ${formData.get('adresa')}
+DATUM ROĐENJA: ${datumRodenjaFormatted}
+MJESTO ROĐENJA: ${mjestoRodenjaRaw}
+ADRESA I POŠTANSKI BROJ (KANDIDAT): ${formData.get('adresa')}
 BROJ TELEFONA/MOBITELA: ${formData.get('telefon')}
 E-MAIL ADRESA: ${emailRaw}
 
@@ -227,8 +338,12 @@ KATEGORIJA: ${selectedCategory}
 POSTOJEĆA KATEGORIJA: ${postojecaZaEmail}
 
 POSJEDUJE VOZAČKU: ${posjedujeVozacku === 'da' ? 'Da' : 'Ne'}
-OIB: ${oibRaw}
 BROJ VOZAČKE DOZVOLE: ${posjedujeVozacku === 'da' ? brojVozackeRaw : 'Ne posjeduje / nije uneseno'}
+OIB KANDIDATA: ${oibRaw}
+
+${guardianEmailBlock}
+
+--- LIJEČNIČKO UVJERENJE ---
 BROJ LIJEČNIČKOG UVJERENJA: ${formData.get('broj_uvjerenja')}
 MJESTO I VRIJEME IZDAVANJA: ${formData.get('mjesto_vrijeme_izdavanja')}
 
@@ -282,6 +397,7 @@ Poslano: ${new Date().toLocaleString('hr-HR')}
           updateExistingCategoryVisibility();
           updateExistingCategoryOtherVisibility();
           updateBrojVozackeVisibility();
+          updateGuardianVisibility();
         } else {
           throw new Error(data.message || 'Greška pri slanju');
         }
@@ -296,5 +412,12 @@ Poslano: ${new Date().toLocaleString('hr-HR')}
         submitBtn.disabled = false;
       }
     });
+  }
+
+  if (form) {
+    updateExistingCategoryVisibility();
+    updateExistingCategoryOtherVisibility();
+    updateBrojVozackeVisibility();
+    updateGuardianVisibility();
   }
 });
