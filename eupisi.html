@@ -152,8 +152,7 @@
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
-                >Datum rođenja (dan/mjesec/godina):
-                <span class="text-red-400">*</span></label
+                >Datum rođenja: <span class="text-red-400">*</span></label
               >
               <input
                 type="text"
@@ -162,11 +161,12 @@
                 placeholder="DD/MM/GGGG npr. 08/05/2008"
                 required
                 autocomplete="bday"
+                maxlength="10"
                 class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
               />
               <p class="text-zinc-500 text-xs mt-1">
-                Format: dan / mjesec / godina (DD/MM/GGGG). Točke su dopuštene
-                umjesto kose crte (npr. 08.05.2008).
+                Format: dan / mjesec / godina. Dovoljno je upisati 8 znamenki —
+                kose crte se dodaju automatski.
                 <span class="block mt-0.5"
                   >Ako ste mlađi od 18 godina, prikazat će se podaci za
                   roditelja/skrbnika.</span
@@ -189,7 +189,7 @@
 
             <div>
               <label class="block text-zinc-200 text-sm mb-1"
-                >Adresa i poštanski broj (kandidata):
+                >Adresa i poštanski broj kandidata:
                 <span class="text-red-400">*</span></label
               >
               <input
@@ -367,13 +367,29 @@
 
               <div>
                 <label class="block text-zinc-200 text-sm mb-1"
-                  >Adresa i poštanski broj skrbnika:
+                  >Adresa i poštanski broj roditelja / skrbnika:
                   <span class="text-red-400">*</span></label
                 >
                 <input
                   type="text"
                   name="adresa_skrbnika"
                   class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 outline-none"
+                />
+              </div>
+
+              <div>
+                <label class="block text-zinc-200 text-sm mb-1"
+                  >OIB roditelja / skrbnika:
+                  <span class="text-red-400">*</span></label
+                >
+                <input
+                  type="text"
+                  name="oib_skrbnika"
+                  inputmode="numeric"
+                  pattern="[0-9]{11}"
+                  maxlength="11"
+                  autocomplete="off"
+                  class="w-full px-3 py-2 bg-zinc-900 border border-zinc-600 rounded-lg text-yellow-50 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 outline-none"
                 />
               </div>
             </div>

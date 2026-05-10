@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const datumRodenjaInput = form ? form.querySelector('[name="datum_rodenja"]') : null;
   const imeRoditeljaInput = form ? form.querySelector('[name="ime_roditelja"]') : null;
   const adresaSkrbnikaInput = form ? form.querySelector('[name="adresa_skrbnika"]') : null;
+  const oibSkrbnikaInput = form ? form.querySelector('[name="oib_skrbnika"]') : null;
 
   function parseDmyDate(s) {
     const raw = String(s || '').trim();
@@ -167,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
       guardianSection.style.display = '';
       if (imeRoditeljaInput) imeRoditeljaInput.required = true;
       if (adresaSkrbnikaInput) adresaSkrbnikaInput.required = true;
+      if (oibSkrbnikaInput) oibSkrbnikaInput.required = true;
     } else {
       guardianSection.style.display = 'none';
       if (imeRoditeljaInput) {
@@ -177,12 +179,38 @@ document.addEventListener('DOMContentLoaded', function () {
         adresaSkrbnikaInput.required = false;
         adresaSkrbnikaInput.value = '';
       }
+      if (oibSkrbnikaInput) {
+        oibSkrbnikaInput.required = false;
+        oibSkrbnikaInput.value = '';
+      }
+    }
+  }
+
+  // Auto-format DD/MM/GGGG so mobile users (numeric keypad, no "/" key)
+  // can just type 8 digits and slashes get inserted automatically.
+  function formatDateInput(input) {
+    const cursorAtEnd = input.selectionStart === input.value.length;
+    const digits = input.value.replace(/\D/g, '').slice(0, 8);
+    let formatted = digits;
+    if (digits.length > 4) {
+      formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+    } else if (digits.length > 2) {
+      formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    }
+    if (input.value !== formatted) {
+      input.value = formatted;
+      if (cursorAtEnd) {
+        try { input.setSelectionRange(formatted.length, formatted.length); } catch (_) {}
+      }
     }
   }
 
   if (datumRodenjaInput) {
+    datumRodenjaInput.addEventListener('input', function () {
+      formatDateInput(this);
+      updateGuardianVisibility();
+    });
     datumRodenjaInput.addEventListener('change', updateGuardianVisibility);
-    datumRodenjaInput.addEventListener('input', updateGuardianVisibility);
   }
 
   function updateBrojVozackeVisibility() {
@@ -304,6 +332,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const adresaSkrbnikaEl = form.querySelector('[name="adresa_skrbnika"]');
       const imeRoditeljaRaw = (formData.get('ime_roditelja') || '').trim();
       const imeRoditeljaEl = form.querySelector('[name="ime_roditelja"]');
+      const oibSkrbnikaRaw = (formData.get('oib_skrbnika') || '').trim();
+      const oibSkrbnikaEl = form.querySelector('[name="oib_skrbnika"]');
 
       if (kandidatMaloljetan) {
         if (!imeRoditeljaRaw) {
@@ -312,13 +342,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!adresaSkrbnikaRaw) {
           return showError('Molimo upišite adresu i poštanski broj skrbnika.', adresaSkrbnikaEl);
         }
+        if (!oibSkrbnikaRaw) {
+          return showError('Molimo upišite OIB roditelja / skrbnika.', oibSkrbnikaEl);
+        }
+        if (!/^\d{11}$/.test(oibSkrbnikaRaw)) {
+          return showError('OIB roditelja / skrbnika mora sadržavati točno 11 znamenki i ne smije sadržavati slova ili razmake.', oibSkrbnikaEl);
+        }
       }
 
       const datumRodenjaFormatted = formatDmySlash(birthDate);
       const guardianEmailBlock = kandidatMaloljetan
         ? `--- RODITELJ / SKRBNIK ---
 IME I PREZIME RODITELJA/SKRBNIKA: ${imeRoditeljaRaw}
-ADRESA I POŠTANSKI BROJ SKRBNIKA: ${adresaSkrbnikaRaw}`
+ADRESA I POŠTANSKI BROJ SKRBNIKA: ${adresaSkrbnikaRaw}
+OIB RODITELJA/SKRBNIKA: ${oibSkrbnikaRaw}`
         : '--- RODITELJ / SKRBNIK ---\nKandidat punoljetan (18+); podaci skrbnika nisu potrebni.';
 
       // Build email body
