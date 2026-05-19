@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const brojVozackeInput = form ? form.querySelector('[name="broj_vozacke"]') : null;
   const datumRodenjaInput = form ? form.querySelector('[name="datum_rodenja"]') : null;
+  const datumIzdavanjaInput = form ? form.querySelector('[name="datum_izdavanja"]') : null;
   const imeRoditeljaInput = form ? form.querySelector('[name="ime_roditelja"]') : null;
   const adresaSkrbnikaInput = form ? form.querySelector('[name="adresa_skrbnika"]') : null;
   const oibSkrbnikaInput = form ? form.querySelector('[name="oib_skrbnika"]') : null;
@@ -211,6 +212,12 @@ document.addEventListener('DOMContentLoaded', function () {
       updateGuardianVisibility();
     });
     datumRodenjaInput.addEventListener('change', updateGuardianVisibility);
+  }
+
+  if (datumIzdavanjaInput) {
+    datumIzdavanjaInput.addEventListener('input', function () {
+      formatDateInput(this);
+    });
   }
 
   function updateBrojVozackeVisibility() {
@@ -350,7 +357,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
+      const mjestoIzdavanjaRaw = (formData.get('mjesto_izdavanja') || '').trim();
+      const mjestoIzdavanjaEl = form.querySelector('[name="mjesto_izdavanja"]');
+      if (!mjestoIzdavanjaRaw) {
+        return showError('Molimo upišite mjesto izdavanja liječničkog uvjerenja.', mjestoIzdavanjaEl);
+      }
+
+      const datumIzdavanjaVal = (formData.get('datum_izdavanja') || '').trim();
+      const issueDate = parseDmyDate(datumIzdavanjaVal);
+      if (!issueDate) {
+        return showError(
+          'Molimo upišite datum izdavanja u obliku DD/MM/GGGG (dan/mjesec/godina), npr. 08/05/2024.',
+          datumIzdavanjaInput
+        );
+      }
+      if (issueDate > todayStart) {
+        return showError('Datum izdavanja ne može biti u budućnosti.', datumIzdavanjaInput);
+      }
+
       const datumRodenjaFormatted = formatDmySlash(birthDate);
+      const datumIzdavanjaFormatted = formatDmySlash(issueDate);
       const guardianEmailBlock = kandidatMaloljetan
         ? `--- RODITELJ / SKRBNIK ---
 IME I PREZIME RODITELJA/SKRBNIKA: ${imeRoditeljaRaw}
@@ -382,7 +408,8 @@ ${guardianEmailBlock}
 
 --- LIJEČNIČKO UVJERENJE ---
 BROJ LIJEČNIČKOG UVJERENJA: ${formData.get('broj_uvjerenja')}
-MJESTO I VRIJEME IZDAVANJA: ${formData.get('mjesto_vrijeme_izdavanja')}
+MJESTO IZDAVANJA: ${mjestoIzdavanjaRaw}
+DATUM IZDAVANJA: ${datumIzdavanjaFormatted}
 
 DODATNA NAPOMENA:
 ${formData.get('napomena') || 'Nema dodatnih napomena'}
@@ -400,7 +427,7 @@ Poslano: ${new Date().toLocaleString('hr-HR')}
         submitBtn.disabled = true;
 
         const web3formData = new FormData();
-        web3formData.append('access_key', '76b7e2cd-8875-4a33-9dfa-eb33bf7f959b');
+        web3formData.append('access_key', '45948d86-cd81-4c67-b440-d08d6b0f772d');
         web3formData.append('subject', `Nova prijava - ${formData.get('ime_prezime')} - ${selectedCategory}`);
         web3formData.append('from_name', formData.get('ime_prezime'));
         web3formData.append('replyto', emailRaw || 'Info.autoskolabozinic@gmail.com');
